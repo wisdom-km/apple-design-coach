@@ -1,0 +1,4 @@
+interface:
+  display_name: "Apple Design Coach"
+  short_description: "基于 Apple 设计原则理解现有项目，提供可落实的界面建议与验收方法"
+  default_prompt: "请使用 $apple-design-coach 理解当前项目的用户与主任务，给出有代码或界面依据的优先改进建议，并说明如何验收。"

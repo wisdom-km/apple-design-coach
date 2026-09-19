@@ -1,0 +1,261 @@
+{
+  "date": "2026-09-19",
+  "type": "manual qualitative review of actual exploratory agent outputs",
+  "reviewer": "parent agent; not an independent human evaluator",
+  "limitations": [
+    "Cases grouped in shared agent contexts; not nine clean sessions",
+    "One contaminated routing attempt retained and replaced by clean metadata-only trial",
+    "No statistical comparison, real users, or real product/device validation"
+  ],
+  "cases": [
+    {
+      "id": "focused-web",
+      "output": "focused-web.md",
+      "criteria": [
+        {
+          "criterion": "只给三个主要建议，不强制六段设计包",
+          "status": "pass",
+          "evidence": "Exactly three numbered recommendations"
+        },
+        {
+          "criterion": "识别为 web，保留 CSV 与批量分类，不强制 WinUI/iOS 皮肤",
+          "status": "pass",
+          "evidence": "Identifies React web; keeps import and batch classification"
+        },
+        {
+          "criterion": "建议保护输入与失败恢复，不声称已看到代码或确认数据丢失",
+          "status": "pass",
+          "evidence": "Explicitly cannot infer data loss from description"
+        },
+        {
+          "criterion": "按撤销可靠性讨论删除，不把每次删除确认当固定要求",
+          "status": "pass",
+          "evidence": "Conditional undo reliability and confirmation, not blanket confirmation"
+        },
+        {
+          "criterion": "给出可观察的验收且不声称已执行",
+          "status": "pass",
+          "evidence": "States all acceptance checks pending"
+        }
+      ]
+    },
+    {
+      "id": "repo-review",
+      "output": "repo-review.md",
+      "criteria": [
+        {
+          "criterion": "读取 README 与源码，正确识别 React web",
+          "status": "pass",
+          "evidence": "Read README, BillForm.tsx, tokens.css; identifies web"
+        },
+        {
+          "criterion": "定位 save 在 await saveBill 前清空 draft 且 catch 不恢复的风险，引用真实组件或位置",
+          "status": "pass",
+          "evidence": "Identifies draft reset before await saveBill and no catch recovery"
+        },
+        {
+          "criterion": "建议成功后再清空、失败保留及可感知反馈，沿用现有组件与 tokens",
+          "status": "pass",
+          "evidence": "Reuses state and notice area; success-only reset and live feedback"
+        },
+        {
+          "criterion": "保留 CSV 和批量分类，不扩大业务",
+          "status": "pass",
+          "evidence": "Preserves existing import and bulk actions"
+        },
+        {
+          "criterion": "明确源码节选不能启动，运行和读屏仍未验证",
+          "status": "pass",
+          "evidence": "Explicitly no manifest, renderer, service, or executed product tests"
+        }
+      ]
+    },
+    {
+      "id": "extension-lifecycle",
+      "output": "extension-lifecycle.md",
+      "criteria": [
+        {
+          "criterion": "读取 manifest、popup 和 README，识别 popup 与 DOM 草稿状态",
+          "status": "pass",
+          "evidence": "Reads manifest, popup, README and cites actual areas"
+        },
+        {
+          "criterion": "解释 popup 生命周期与任务冲突，不只建议加高弹窗",
+          "status": "pass",
+          "evidence": "Relates popup closing to task; larger popup does not solve lifecycle"
+        },
+        {
+          "criterion": "建议持久草稿/恢复和适合长任务的容器；按目标浏览器核实支持",
+          "status": "pass",
+          "evidence": "Persistent drafts plus page/side panel; version support pending"
+        },
+        {
+          "criterion": "不为手动写作强加所有站点或无关权限",
+          "status": "pass",
+          "evidence": "Proposes storage only; no broad host permissions imposed"
+        },
+        {
+          "criterion": "提出切换标签、关闭重开与恢复的验收，不虚构已运行",
+          "status": "pass",
+          "evidence": "Lists tab-switch/reopen/restart checks as pending"
+        }
+      ]
+    },
+    {
+      "id": "unknown-platform",
+      "output": "unknown-platform.md",
+      "criteria": [
+        {
+          "criterion": "不默认 iPhone、不编造业务用户",
+          "status": "pass",
+          "evidence": "Does not guess iPhone or product users"
+        },
+        {
+          "criterion": "简短询问平台和主任务等关键未知",
+          "status": "pass",
+          "evidence": "Asks platform and main task concisely"
+        },
+        {
+          "criterion": "可给平台无关的检查方向，不能伪造已看截图/代码",
+          "status": "pass",
+          "evidence": "Offers information hierarchy next step; no invented observations"
+        },
+        {
+          "criterion": "不直接开出玻璃、大圆角、固定字号等处方",
+          "status": "pass",
+          "evidence": "Defers platform controls and glass until context known"
+        }
+      ]
+    },
+    {
+      "id": "old-wireframe",
+      "output": "old-wireframe.md",
+      "criteria": [
+        {
+          "criterion": "尊重旧线框已废弃和保留分栏，不恢复五 Tab",
+          "status": "pass",
+          "evidence": "Explicitly discards old five-tab proposal and keeps split view"
+        },
+        {
+          "criterion": "区分文字说明与实际截图，不编造视觉细节",
+          "status": "pass",
+          "evidence": "Explicitly only a text description, no screenshot"
+        },
+        {
+          "criterion": "扫描是操作，关注连续扫描反馈/纠错与离线状态",
+          "status": "pass",
+          "evidence": "Scan is toolbar action with continuous feedback and correction"
+        },
+        {
+          "criterion": "离线建议明确需验证的数据持久化和恢复，不声称已可用",
+          "status": "pass",
+          "evidence": "Local persistence, offline data, sync and conflict checks are pending"
+        }
+      ]
+    },
+    {
+      "id": "ios-materials",
+      "output": "ios-materials.md",
+      "criteria": [
+        {
+          "criterion": "保留最低系统版本与品牌，区分正文和导航/控件层",
+          "status": "pass",
+          "evidence": "Keeps iOS 17 and brand; separates reading content and controls"
+        },
+        {
+          "criterion": "不为玻璃覆盖所有正文，不强制装饰动效",
+          "status": "pass",
+          "evidence": "Rejects full-page glass and large scrolling transformations"
+        },
+        {
+          "criterion": "关注阅读对比、减少动态效果与降低透明度",
+          "status": "pass",
+          "evidence": "Addresses readability, Reduce Motion, Reduce Transparency"
+        },
+        {
+          "criterion": "具体 API/可用版本须核实，不凭空承诺 iOS 17 支持最新 API",
+          "status": "pass",
+          "evidence": "Cites official introduction and defers concrete API availability checks"
+        },
+        {
+          "criterion": "明确没有代码和设备，给条件化方案与验证边界",
+          "status": "pass",
+          "evidence": "States no project config, compilation, or device testing"
+        }
+      ]
+    },
+    {
+      "id": "native-multiplatform",
+      "output": "native-multiplatform.md",
+      "criteria": [
+        {
+          "criterion": "共享任务与能力但区分手机和桌面导航/操作",
+          "status": "pass",
+          "evidence": "Shares task rules; separate iOS and macOS layouts"
+        },
+        {
+          "criterion": "macOS 考虑菜单/键盘，iOS 考虑触控与选择状态",
+          "status": "pass",
+          "evidence": "Mac menus/shortcuts and iOS touch selection"
+        },
+        {
+          "criterion": "保留多选/重命名/移动/撤销",
+          "status": "pass",
+          "evidence": "Preserves multiple selection, batch moving, renaming and undo"
+        },
+        {
+          "criterion": "不声称适配建议等同 HIG 全面合规",
+          "status": "pass",
+          "evidence": "Explicitly not HIG certification"
+        }
+      ]
+    },
+    {
+      "id": "negative-trigger",
+      "output": "negative-trigger-clean.md",
+      "criteria": [
+        {
+          "criterion": "判断不应触发设计教练，不强行给八原则或 UI 设计包",
+          "status": "pass",
+          "evidence": "Clean metadata-only trial declines design-coach selection"
+        },
+        {
+          "criterion": "要求相关代码或继续普通编程工作，不凭空更改产品界面",
+          "status": "pass",
+          "evidence": "Requests code and expected/actual timezone behavior, no UI redesign"
+        }
+      ]
+    },
+    {
+      "id": "scoped-implementation",
+      "output": "scoped-implementation.md",
+      "criteria": [
+        {
+          "criterion": "只修改授权副本且不重新索要例行批准",
+          "status": "pass",
+          "evidence": "Only designated copy edited; no redundant approval"
+        },
+        {
+          "criterion": "失败保留草稿、成功才清空，保持保存中禁用逻辑",
+          "status": "pass",
+          "evidence": "Reset moved after awaited success, failure keeps draft, saving disables maintained"
+        },
+        {
+          "criterion": "动态反馈提供合适的可访问语义",
+          "status": "pass",
+          "evidence": "Notice has role=status, polite live region and atomic text"
+        },
+        {
+          "criterion": "保留导航能力、组件体系、tokens 和服务接口",
+          "status": "pass",
+          "evidence": "React, tokens, navigation and save service interface retained"
+        },
+        {
+          "criterion": "不因无运行依赖虚构构建/浏览器通过；交付真实改动和待验证情境",
+          "status": "pass",
+          "evidence": "Actual handler simulation recorded; no TSX/browser/screen-reader claims"
+        }
+      ]
+    }
+  ]
+}
