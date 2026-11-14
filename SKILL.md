@@ -27,7 +27,7 @@ description: >-
 
 **非 Apple 表面（Windows、浏览器扩展等）**：只借用精神与决策方式，**绝不声称符合 Apple HIG 合规**。
 
-配套参考（与本 skill 同目录，按需加载）：`references/eight-principles.md`、`references/surfaces.md`、`references/placement-playbook.md`、`references/input-visuals.md`。
+配套参考（与本 skill 同目录，按需加载）：`references/eight-principles.md`、`references/surfaces.md`、`references/placement-playbook.md`、`references/input-visuals.md`、`references/reference-library.md`。
 
 ---
 
@@ -63,6 +63,7 @@ description: >-
 |------|------|
 | **截图** | 当前现实：真实布局、密度、系统 chrome、已有控件 |
 | **结构化线框/画框** | 意图：ASCII 盒、标注区域、正式线框——表达「想放什么、什么关系」 |
+| **外部参考截图** | 别人的产品或作品：只提取可命名的手法，不当本产品的现实或意图（见 `input-visuals.md`） |
 
 ### 冲突规则（锁定）
 
@@ -92,6 +93,7 @@ description: >-
 | 跨平台对比、精神借用 vs 禁止事项 | `references/surfaces.md` |
 | 功能落位、导航、chrome 建议 | `references/placement-playbook.md` |
 | 解读截图 / 线框 / 二者并用 | `references/input-visuals.md` |
+| 写「参考建议」、用户贴来别人产品的截图、要交给写码 agent | `references/reference-library.md` |
 
 默认：至少加载 **八原则** + **当前表面相关的 surfaces/placement 段落**。有视觉输入时再加载 `input-visuals.md`。
 
@@ -129,6 +131,15 @@ description: >-
 
 给出的是 **线框级方向**（区域、层级、标注），不是精修 mockup。说明见文末「参考图指导」。
 
+### 7. 实现交接（可选：用户要交给写码 agent 时）
+
+把设计包压成一段可直接给 agent 的指令。要求：
+
+- **点名，不形容**：写出具体模式名、系统名、来源（例如「iOS 导航栏尾部主按钮」「破坏性操作用确认 + 不与主按钮同形」），不写「高级一点」「现代一点」。
+- **数值有出处**：需要数值时引用体系（Apple HIG、Material 3、Radix Colors、Utopia 等）；没有体系依据就不写数值。
+- **写完自查**：Apple 表面按 HIG 对应章节自查；Web / 浏览器扩展 UI 按 [Vercel Web Interface Guidelines](https://vercel.com/design/guidelines) 逐条自查；Windows 按 Fluent / WinUI 惯例。
+- 模板见文末「实现交接模板」。
+
 ---
 
 ## 输出骨架（必须按此顺序）
@@ -161,6 +172,7 @@ description: >-
 
 # 参考建议
 - 可借鉴的系统模式（按表面命名，如「macOS 设置侧边栏」而非「照抄某 App」）
+- 真实产品参考（优先已上线产品，不用概念稿当证据）：每条写「参考 / 手法 / 为什么好（原则或 UX 定律）/ 本案怎么借」，并标「已打开」或「还没核实」——格式见 `reference-library.md`
 - 参考图方向（线框级，见下）
 - 后续可探索的 Craft / Delight 机会（克制，不堆特效）
 
@@ -187,6 +199,10 @@ description: >-
 8. **Delight 贴花** — 无 Purpose 的彩带动画、无意义粒子
 9. **虚假精度** — 输出「间距 8pt、圆角 12」等伪精确值却无设计系统依据
 10. **跨表面复制布局** — 把 iPhone 线框原样贴到 Mac/Windows
+11. **空词参考** — 用「高级、现代、大气、苹果风」代替具体手法；改写成「名字 + 手法 + 为什么好」
+12. **概念稿当证据** — 用作品集概念稿证明某种落位可行；改用已上线产品的同类页面（含空态、错误、权限）
+13. **AI 默认结构** — 所有元素一样重、card 套 card、状态 chip 堆砌、首屏字段过多、空泛 CTA（「开始」「继续」）；这些是层级与 Purpose 问题，不只是视觉问题（例子见 Impeccable 首页，链接在 `reference-library.md`）
+14. **假装看过** — 声称参考了某产品的具体做法，但本轮没打开页面也没有用户截图
 
 ---
 
@@ -198,6 +214,7 @@ description: >-
 | `references/surfaces.md` | 表面声明后立刻；多表面对比时全文；单表面时读对应节 + 翻译规则 |
 | `references/placement-playbook.md` | 写「功能落位/IA」与「UI 结构」之前 |
 | `references/input-visuals.md` | 出现截图、线框、ASCII 盒、标注区域，或两者同时出现时 |
+| `references/reference-library.md` | 写「参考建议」前；用户贴来别人产品的截图；要写实现交接时 |
 
 ---
 
@@ -212,6 +229,20 @@ description: >-
 
 ---
 
+## 实现交接模板（可选）
+
+```text
+目标：<一句话目的>；表面：<表面>
+结构：按上文「UI 结构」实现 <屏幕/面板清单>，主路径 <入口 → … → 完成态>
+点名的模式：<模式 1（来源）>、<模式 2（来源）>
+状态：必须实现 空 / 加载 / 错误 / 权限拒绝 / 成功（文案见上文）
+数值：只用 <体系名> 的取值；没有依据的不要自定
+不要：<本案命中的反模式，如 card 套 card、开屏权限、假 iOS 皮肤>
+完成后自查：<HIG 对应章节 | Vercel Web Interface Guidelines | Fluent>，逐条列出未通过项
+```
+
+---
+
 ## 快速检查清单（输出前）
 
 - [ ] 表面已声明；非 Apple 表面有「精神借用、非合规」说明
@@ -219,3 +250,5 @@ description: >-
 - [ ] 双输入时：线框意图优先，截图作现实校验，差距写入备注
 - [ ] 输出六段骨架齐全
 - [ ] 无假 iOS 皮肤、无百科堆砌、无伪精确视觉规范冒充合同
+- [ ] 参考建议每条有「名字 + 手法 + 为什么好 + 怎么借」，优先已上线产品，并标「已打开 / 还没核实」
+- [ ] 没有空词参考（高级、现代、大气、苹果风）

@@ -132,6 +132,7 @@
 2. 「Delight」提案是否依附于 Purpose，还是无意义装饰？
 3. 小而确定的愉悦（清晰成功态、恰到好处的完成反馈）是否已具备，再谈锦上添花？
 4. 是否在用动画掩盖 IA 混乱？
+5. 每个动效能否一句话说出目的（解释功能、反馈按压、保持空间一致）？说不出就删。参考 Emil Kowalski《You Don't Need Animations》：https://emilkowal.ski/ui/you-dont-need-animations
 
 **合同中应留下：** 1 个以内有目的的愉悦机会；其余标为可选。
 
@@ -155,4 +156,33 @@
 - Agency: …
 - …（只写相关项）
 张力与取舍：… → 决定：…
+```
+
+---
+
+## UX 定律作理由（不作规范）
+
+用途：写「为什么这样落位 / 为什么砍掉」时，给原则判断补一个可查的心理学依据。只当理由引用，不当打分清单；定律之间也会冲突，最后仍按原则张力取舍。
+
+来源：[Laws of UX](https://lawsofux.com/)（2026-11-15 逐页打开，定义取自各页原文）。线索来自 Eian（@EianLu）的 X 文章：「写改版方案需要找理论依据时，上去翻一下很快。」
+
+| 定律 | 定义（据原页英文，部分缩写） | 主要支撑的原则 | 教练怎么用 |
+|------|------------|----------------|------------|
+| [Hick's Law](https://lawsofux.com/hicks-law/) | The time it takes to make a decision increases with the number and complexity of choices. | Simplicity · Purpose | 主屏选项多 → 先砍、再分组、再渐进披露 |
+| [Choice Overload](https://lawsofux.com/choice-overload/) | People get overwhelmed when presented with a large number of options. | Simplicity · Flexibility | 个性化给「默认佳构」，不要把设置当作业 |
+| [Miller's Law](https://lawsofux.com/millers-law/) / [Chunking](https://lawsofux.com/chunking/) | Working memory holds about 7 (±2) items; chunking groups pieces into a meaningful whole. | Simplicity | 长表单、长设置页按意义分组，不是机械限 7 项 |
+| [Law of Proximity](https://lawsofux.com/law-of-proximity/) | Objects that are near each other tend to be grouped together. | Familiarity · Craft | 相关控件靠近；危险操作远离高频操作 |
+| [Fitts's Law](https://lawsofux.com/fittss-law/) | The time to acquire a target is a function of the distance to and size of the target. | Flexibility · Craft | 主操作放在手指 / 指针最近处；触控与指针表面结论不同 |
+| [Jakob's Law](https://lawsofux.com/jakobs-law/) | Users prefer your site to work the same way as all the other sites they already know. | Familiarity | 打破平台惯例前，先写出理由和学习成本 |
+| [Tesler's Law](https://lawsofux.com/teslers-law/) | For any system there is a certain amount of complexity which cannot be reduced. | Simplicity vs Agency | 复杂度只能挪位置：由系统承担，还是由用户承担？写进取舍 |
+| [Goal-Gradient Effect](https://lawsofux.com/goal-gradient-effect/) | The tendency to approach a goal increases with proximity to the goal. | Purpose | 多步流程显示进度；先给最快可见的结果 |
+| [Doherty Threshold](https://lawsofux.com/doherty-threshold/) | Productivity soars when interaction happens at a pace (<400ms) where neither waits on the other. | Craft | 反馈即时；慢操作给诚实的进度，不靠动画掩盖 |
+| [Peak-End Rule](https://lawsofux.com/peak-end-rule/) | People judge an experience by its peak and its end. | Delight | 把唯一的 Delight 机会放在完成态，而不是开屏 |
+| [Aesthetic-Usability Effect](https://lawsofux.com/aesthetic-usability-effect/) | Users perceive aesthetically pleasing design as more usable. | Craft（附警告） | 好看会掩盖可用性问题：测试时别被「好看」骗过 |
+
+写法示例（放进「原则取舍摘要」或「风险与翻译备注」）：
+
+```text
+决定：主屏只保留 3 个输入。理由：Purpose（30 秒出结果）+ Hick's Law（选项越多决策越慢）。
+代价：税率与权重表移入 Sheet（Tesler's Law：复杂度转给需要它的少数用户）。
 ```

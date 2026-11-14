@@ -33,6 +33,7 @@ apple-design-coach/
     surfaces.md
     placement-playbook.md
     input-visuals.md
+    reference-library.md
   examples/
     aa-split-ios-coaching.md
 ```
@@ -47,6 +48,12 @@ apple-design-coach/
 | Structured wireframe / ASCII frames | Optional — intent |
 
 If **both** screenshot and wireframe are present: align **wireframe intent first**, then use the screenshot as a **reality check**.
+
+## References & taste vocabulary
+
+`references/reference-library.md` lists curated, link-checked sources for shipped-product UI references (Mobbin, Page Flows, Refero, Component Gallery, Laws of UX, Vercel Web Interface Guidelines, …) and a rule for writing references: **name + technique + why (principle / UX law) + how to borrow**, never vague words like "make it premium". Curation adapted from Eian (@EianLu)'s X article on 100 design-taste websites.
+
+`references/eight-principles.md` maps Laws of UX to the eight principles, as rationale (not a checklist).
 
 ## Example
 
