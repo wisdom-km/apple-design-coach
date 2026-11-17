@@ -7,8 +7,9 @@ description: >-
   in force on every surface. Navigation, controls, placement, and input
   follow the target platform. Ask for a platform only when the request does
   not already decide it. Design contract and information architecture come
-  first; when the user asks for a visual draft, produce a viewable mockup
-  or an honest structural fallback.
+  first. When a visual direction is still missing, offer two or three
+  lightweight directions before the full mockup. Then produce a viewable
+  mockup, critique it, and revise it, or give an honest structural fallback.
 ---
 # Apple Design Coach（跨表面软件设计教练）
 
@@ -21,7 +22,7 @@ description: >-
 1. 用 **共享哲学内核（A 层）**——Apple HIG / WWDC26 八原则——做设计判断。这一层在每个表面都是必须的，包括 Android、Windows、Linux、网页和扩展；
 2. 用 **表面适配层（B 层）**——导航、控件、功能落位、触控或键盘、窗口 chrome 采用目标平台自己的规范；
 3. 产出可执行的 **设计合同 → 功能落位/IA → UI 结构 → 状态与权限 → 参考建议 → 风险与翻译备注**；
-4. 用户明确要看界面时，在合同和落位之后给出 **可以打开的视觉草稿**。不出草稿时，交付停在结构线框，并且不要把线框叫做视觉稿。
+4. 用户明确要看界面时，在合同和落位之后给出 **可以打开的视觉草稿**。方向还没定时，先给 2–3 个轻量方向，选定后再出完整稿。不出草稿时，交付停在结构线框，并且不要把线框叫做视觉稿。
 
 视觉草稿不是该平台的原生实现，也不是真机测试。设计咨询本身不授权去实现整个应用，也不授权把项目数据送到新的外部服务。
 
@@ -34,7 +35,7 @@ description: >-
 
 **非 Apple 表面（Android、Windows、Linux、网页、浏览器扩展等）**：八原则必须保留，用来说明每个主要落位为什么这样，以及它和另一条原则或该平台惯例的张力。导航、控件和输入改用该平台的规范，见 `references/source-provenance.md`。**不把这件事写成符合 Apple HIG。** 平台规范清单不能代替原则判断。
 
-配套参考（与本 skill 同目录，按需加载）：`references/eight-principles.md`、`references/surfaces.md`、`references/placement-playbook.md`、`references/input-visuals.md`、`references/reference-library.md`、`references/platform-router.md`、`references/aesthetics.md`、`references/visual-drafts.md`、`references/source-provenance.md`。
+配套参考（与本 skill 同目录，按需加载）：`references/eight-principles.md`、`references/surfaces.md`、`references/placement-playbook.md`、`references/input-visuals.md`、`references/reference-library.md`、`references/platform-router.md`、`references/aesthetics.md`、`references/visual-drafts.md`、`references/direction-choice.md`、`references/design-memory.md`、`references/draft-critique.md`、`references/source-provenance.md`。
 
 本仓库单独安装就能用。平台 Skill 只在宿主里已经存在时才加载，见路由文件。没有它们不是停工条件。
 
@@ -123,11 +124,11 @@ description: >-
 | 功能落位、导航、chrome 建议 | `references/placement-playbook.md` |
 | 字体、间距、密度、颜色、层级 | `references/aesthetics.md` |
 | 解读截图 / 线框 / 二者并用 | `references/input-visuals.md` |
-| 用户要可视草稿、mockup、原型 | `references/visual-drafts.md` |
+| 用户要可视草稿、mockup、原型 | `references/visual-drafts.md`；方向未定再加 `references/direction-choice.md`；进了项目再加 `references/design-memory.md`；稿已能看再加 `references/draft-critique.md` |
 | 写「参考建议」、用户贴来别人产品的截图、要交给写码 agent | `references/reference-library.md` |
 | 引用官方数字或判断某条指南能不能复用 | `references/source-provenance.md` |
 
-默认：至少加载 **八原则** + **路由所需的一段** + **当前表面的 surfaces/placement**。有视觉输入时再加载 `input-visuals.md`。要出稿时再加载 `aesthetics.md` 与 `visual-drafts.md`。
+默认：至少加载 **八原则** + **路由所需的一段** + **当前表面的 surfaces/placement**。有视觉输入时再加载 `input-visuals.md`。要出稿时再加载 `aesthetics.md` 与 `visual-drafts.md`。方向没定、要记项目视觉、或稿已经能看时，再分别打开方向、记忆和评审那三份，不要一次全读。
 
 平台专用 Skill（名字可能是 `platform-ios`、`platform-android`、`platform-web`、`platform-macos`、`material-3` 等）**只有在宿主已经列出或目录里确实读到时才加载**。没发现就写「未发现可加载的平台 Skill，使用本仓库 references」，然后继续。不要声称加载过，也不要要求先装齐。
 
@@ -167,9 +168,15 @@ description: >-
 
 默认给出线框级结构（区域、层级、主路径）。说明见 `references/visual-drafts.md`。
 
-用户要视觉草稿时：先有合同和落位，再按 `references/aesthetics.md` 定方向，然后交付能打开的 HTML 或当前会话里**确实存在**的图像工具所生成的图。工具列表里没有图像工具，就不要提到一个并不存在的生成器。不能写文件时，把单文件 HTML 放进回复并标明未落盘。两种都做不到时，交付结构线框，并写明「本轮没有可视草稿」。
+用户要视觉草稿时：
 
-浏览器打开 HTML、或给它拍的图，是在看设计草稿，不是真机测试，也不是应用已经做好。用户没要求实现产品时，不要开始建工程。
+1. 合同和落位先写完。平台沿用 `platform-router.md`，不要为了外观重问一遍。
+2. 方向还没定：按 `references/direction-choice.md` 给 2–3 个不同的轻量方向，停在这里。用户选定或明确委托你选之后，才做完整草稿。
+3. 项目里已有设计记录：按 `references/design-memory.md` 沿用。新确认的方向写入项目那一份记录，不另建一套。
+4. 然后交付能打开的 HTML，或当前会话里确实存在的图像工具生成的图。没有图像工具就不要提到一个并不存在的生成器。文字方向不是已渲染预览。不能写文件时，把单文件 HTML 放进回复并标明未落盘。两种都做不到时，交付结构线框，并写明「本轮没有可视草稿」。
+5. 稿能看了之后，按 `references/draft-critique.md` 做最多 5 条检查，并把方向内能改的问题改进稿里。
+
+浏览器打开 HTML、或给它拍的图，是在看设计草稿，不是真机测试，也不是应用已经做好。用户没要求实现产品时，不要开始建工程。`aesthetic-coach`、frontend-design、hallmark 只有宿主里真有才用，没有就用本仓库的短清单。
 
 ### 7. 实现交接（可选：用户要交给写码 agent 时）
 
@@ -212,7 +219,9 @@ description: >-
 - 可撤销与确认点（Agency / 宽恕）
 
 # 视觉草稿（仅当用户要求看界面时；否则写「未要求」）
+- 方向：未定（先给 2–3 个选项，不出完整稿）/ 用户已选 / 沿用项目记录 / 教练代选并写明理由
 - 工件：可打开的文件 / 回复中的 HTML / 或「只有结构线框」
+- 评审：最多 5 条；已改进稿的变化；保留的功能
 - 用了哪个参考或 Skill，以及为什么
 - 声明：设计草稿，不是原生实现，不是真机测试
 
@@ -257,6 +266,10 @@ description: >-
 20. **把草稿当实现** — 把 HTML、它的截图或生成图说成真机界面或已经完成的原生应用
 21. **咨询变开工** — 没经同意就实现整个应用，或把项目数据送到新的外部服务
 22. **平台清单替换哲学** — 离开 Apple 之后只交 Material、Fluent、WCAG 或 GNOME/KDE 的打勾，不再写 Purpose、Agency、Responsibility、Simplicity、Craft 等原则，也不写张力。平台规范用来选控件和位置；判断仍然是八原则
+23. **未选方向就出完整稿** — 方向缺失时直接画完；或把三套几乎相同的换色叫做选择；或未问用户就把某一套写成已确认
+24. **文字当成预览** — 没有小样或截图时，把方向描述叫做已经渲染
+25. **覆盖项目视觉** — 不读现有 `DESIGN.md` 就另写一套；根目录不清仍落文件；用户没同意就整页换品牌；代选写成用户已确认
+26. **只评不改** — 草稿的问题列出来了，方向内能改的却留在稿上；或改的时候丢掉原来的功能、文案、链接
 
 ---
 
@@ -271,6 +284,9 @@ description: >-
 | `references/aesthetics.md` | 写视觉方向，或要做视觉草稿时 |
 | `references/input-visuals.md` | 出现截图、线框、ASCII 盒、标注区域，或两者同时出现时 |
 | `references/visual-drafts.md` | 用户要看界面、mockup、原型时 |
+| `references/direction-choice.md` | 要出视觉稿，但方向还没定 |
+| `references/design-memory.md` | 进入项目、要沿用或写入视觉记录时 |
+| `references/draft-critique.md` | 可视草稿已经能看，准备交出去之前 |
 | `references/reference-library.md` | 写「参考建议」前；用户贴来别人产品的截图；要写实现交接时 |
 | `references/source-provenance.md` | 要写官方数字、或说明某条指南是官方还是社区、能不能复用时 |
 
@@ -309,6 +325,9 @@ description: >-
 - [ ] 八原则至少覆盖 Purpose + 与本案相关的 2–3 条，并写出张力取舍
 - [ ] 双输入时：线框意图优先，截图作现实校验，差距写入备注
 - [ ] 输出骨架齐全；视觉方向里的数字要么有出处，要么标成项目决定
+- [ ] 方向已定或已沿用记录之后才有完整视觉稿；没定时停在 2–3 个选项
+- [ ] 项目视觉记录被沿用或谨慎更新；context 只指向它，不抄第二套色
+- [ ] 能看的稿经过短评审；方向内的问题已经改进稿，原功能还在
 - [ ] 用户要草稿时，有可打开的工件，或明确写了为什么本轮只有结构线框
 - [ ] 没有把草稿、截图或生成图说成原生实现或真机测试
 - [ ] 无假 iOS 皮肤、无百科堆砌

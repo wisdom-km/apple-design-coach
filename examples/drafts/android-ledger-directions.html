@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Android 方向小样 · 记一笔</title>
+<style>
+  :root { color-scheme: light; }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: #d9d3cb;
+    color: #1c1917;
+    font-family: "Segoe UI", sans-serif;
+    padding: 20px 16px 32px;
+  }
+  h1 { font-size: 18px; margin: 0 0 8px; }
+  .banner, .foot { max-width: 1080px; margin: 0 auto 14px; font-size: 13px; line-height: 1.45; }
+  .row { max-width: 1080px; margin: 0 auto; display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  figure { margin: 0; }
+  figcaption { font-size: 13px; line-height: 1.4; margin-bottom: 8px; }
+  figcaption strong { display: block; font-size: 15px; }
+  .phone { background: #1b2421; border-radius: 22px; padding: 8px; }
+  .screen { background: #f4f7f5; border-radius: 16px; min-height: 420px; overflow: hidden; }
+  .bar { min-height: 48px; display: flex; align-items: center; padding: 0 12px; font-size: 16px; }
+  .bar span { margin-left: auto; width: 32px; text-align: center; }
+  .paper { background: #f3efe4; }
+  .paper .num { font-family: Georgia, Palatino, serif; font-size: 42px; margin: 28px 16px 0; letter-spacing: -0.03em; }
+  .paper .rule { height: 1px; background: #6b3a2a; margin: 8px 16px 16px; }
+  .paper p { margin: 0 16px 8px; font-size: 14px; }
+  .dense .line { display: flex; justify-content: space-between; gap: 8px; padding: 10px 12px; border-top: 1px solid #d5ddd8; font-size: 14px; }
+  .dense button { display: block; margin: 16px 12px; min-height: 40px; width: calc(100% - 24px); border: 0; border-radius: 16px; background: #0f6e56; color: #fff; font: inherit; }
+  .focus { background: #fff; }
+  .focus .num { font-size: 52px; font-weight: 620; margin: 18px 16px 4px; letter-spacing: -0.04em; }
+  .focus .quiet { margin: 0 16px 12px; color: #5c6560; font-size: 13px; }
+  .focus button { margin: 12px 16px; min-height: 44px; width: calc(100% - 32px); border: 0; border-radius: 8px; background: #143d34; color: #fff; font: inherit; }
+  @media (max-width: 800px) { .row { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+  <p class="banner"><strong>方向小样 · Android · 示例数据 · 还不是完整草稿。</strong>三套差在字、密度和层级，顶栏都是 Android 的标题加溢出，没有 iOS 底栏。未选定之前，其中任何一套都还不是已确认方向。这是浏览器里的小样，不是安卓真机。</p>
+  <h1>记一笔：先选一个方向</h1>
+  <div class="row">
+    <figure>
+      <figcaption><strong>1 账本纸</strong>衬线数字，疏，颜色只出现在金额下的一条线。主任务是把这笔钱看清。</figcaption>
+      <div class="phone"><div class="screen paper">
+        <div class="bar">记一笔<span>⋮</span></div>
+        <div class="num">328.00</div>
+        <div class="rule"></div>
+        <p>家用</p>
+        <p>2026年11月家庭水电燃气合缴账单（含滞纳金说明）</p>
+      </div></div>
+    </figure>
+    <figure>
+      <figcaption><strong>2 系统密表</strong>无衬线，行距紧，标签和值左右分开。保存是唯一的填充按钮。</figcaption>
+      <div class="phone"><div class="screen dense">
+        <div class="bar">记一笔<span>⋮</span></div>
+        <div class="line"><span>金额</span><b>328.00</b></div>
+        <div class="line"><span>分类</span><span>家用</span></div>
+        <div class="line"><span>账单</span><span>水电燃气</span></div>
+        <button type="button">保存</button>
+      </div></div>
+    </figure>
+    <figure>
+      <figcaption><strong>3 一处重点</strong>金额独占字号，分类和说明合成一行安静的字。其余都不抢。</figcaption>
+      <div class="phone"><div class="screen focus">
+        <div class="bar">记一笔<span>⋮</span></div>
+        <div class="num">¥328</div>
+        <p class="quiet">家用 · 水电燃气合缴</p>
+        <button type="button">保存这笔</button>
+      </div></div>
+    </figure>
+  </div>
+  <p class="foot">三套都保留金额、分类和保存。删除与设置在完整稿里才展开，避免把小样做成三个成品。若用户说「你定」，教练可以选一套并写明代选理由；在那之前不写 confirmed。</p>
+</body>
+</html>

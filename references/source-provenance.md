@@ -55,6 +55,16 @@ Apple HIG 页面标明 © 2026 Apple Inc. All rights reserved。只链接和转�
 
 ---
 
+## 方向、记忆和评审（2026-11-17 另读）
+
+这三份公开技能只提供做法，不安装、不运行它们的脚本，也不把手册抄进本仓库。星标不是采用理由。本轮没有证明任何外部技能会在真实会话里照做。
+
+| 来源 | URL | 采用的做法 | 许可 | 核对 |
+|------|-----|------------|------|------|
+| Anthropic frontend-design | https://github.com/anthropics/skills/blob/main/skills/frontend-design/SKILL.md | 先写短的视觉计划，对照任务看是不是通用默认脸，再做完整稿，然后自查。大胆集中在一处 | 该技能目录下的 `LICENSE.txt` 为 Apache-2.0。仓库 API 的 SPDX 为空，不能把整个 anthropics/skills 仓库都说成同一许可证 | 2026-11-17 读到 Process 与 Restraint 两节 |
+| Hallmark | https://github.com/Nutlope/hallmark/blob/main/skills/hallmark/SKILL.md | 用户已经点名方向就直接做；否则先给出少数几个不同方向，看过再做完整页面 | 仓库 MIT，Copyright (c) 2026 Hallmark contributors | 2026-11-17 读到 Direction 一节。不运行它的 `theme.mjs` |
+| Impeccable | https://github.com/pbakaus/impeccable | 用项目自己的 `DESIGN.md` 记住视觉；评审之后，精修留下原有功能与文案，重做才换外观 | Apache-2.0 | 2026-11-17 读 README 的命令表和 `skill/SKILL.src.md` 里关于精修与重做的一句。未逐条打开它宣称的规则文件，也不使用它的启动器 |
+
 ## 本轮未当成已读
 
 - Material 导航轨概述页的正文（见上表）。

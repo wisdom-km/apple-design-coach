@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Android 记一笔 · 评审前</title>
+<style>
+  * { box-sizing: border-box; }
+  body { margin: 0; background: #d5ddd8; font-family: Roboto, "Noto Sans", "Segoe UI", sans-serif; color: #1a1c1b; display: flex; flex-direction: column; align-items: center; padding: 20px 12px 28px; }
+  .meta, .foot { width: min(390px, 100%); font-size: 13px; line-height: 1.45; }
+  .phone { width: 390px; max-width: 100%; background: #1b2421; border-radius: 28px; padding: 8px; margin-top: 12px; }
+  .screen { background: #eef2ef; border-radius: 22px; min-height: 720px; padding-bottom: 16px; }
+  .bar { min-height: 56px; display: flex; align-items: center; padding: 0 16px; font-size: 20px; }
+  .card { margin: 10px 12px; background: #fff; border-radius: 16px; padding: 14px; box-shadow: 0 1px 4px rgba(0,0,0,.06); }
+  .card h2 { margin: 0 0 8px; font-size: 16px; font-weight: 600; }
+  .card p { margin: 0; font-size: 16px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .nest { margin-top: 10px; background: #f4f7f5; border-radius: 12px; padding: 12px; }
+  .actions { display: grid; gap: 8px; margin: 12px; }
+  .actions button { min-height: 48px; border: 0; border-radius: 20px; background: #0f6e56; color: #fff; font: inherit; font-size: 16px; }
+</style>
+</head>
+<body>
+  <p class="meta"><strong>评审前 · Android · 示例数据。</strong>故意把金额、分类、备注做成同权卡片，保存和删除同形。长标题被截断。这不是安卓真机，也还不是改完的稿。</p>
+  <div class="phone"><div class="screen">
+    <div class="bar">记一笔</div>
+    <section class="card"><h2>金额</h2><p>CNY 328.00</p></section>
+    <section class="card"><h2>分类</h2><p>家用</p></section>
+    <section class="card">
+      <h2>备注</h2>
+      <div class="nest"><p>2026年11月家庭水电燃气合缴账单（含滞纳金说明）</p></div>
+    </section>
+    <div class="actions">
+      <button type="button">保存</button>
+      <button type="button">删除</button>
+    </div>
+  </div></div>
+  <p class="foot">功能仍在：金额、分类、备注、保存、删除。设置还没有入口。下一份是同一内容改完层级之后的稿。</p>
+</body>
+</html>

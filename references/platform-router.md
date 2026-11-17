@@ -122,10 +122,13 @@
 - user:
 - constraints:
 - ask_again: no
+- visual_record:
 - decisions:
 - updated:
 ```
 
 `ask_again: no` 表示平台已经定了。下次只要用户没有改口，就不要再问平台。
+
+`visual_record` 只写项目里那份设计文档的路径，例如 `DESIGN.md`。色、字和密度以那份文件为准，不在这里再抄一遍。写法见 `design-memory.md`。
 
 这个文件可以提交到用户自己的产品仓库。不要把私人数据写进去。本 skill 仓库里的 `examples/context-android-only.md` 只是格式示例。

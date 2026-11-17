@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Android 记一笔 · 评审后</title>
+<style>
+  * { box-sizing: border-box; }
+  body { margin: 0; background: #d5ddd8; font-family: Roboto, "Noto Sans", "Segoe UI", sans-serif; color: #1a1c1b; display: flex; flex-direction: column; align-items: center; padding: 20px 12px 28px; }
+  .meta, .foot { width: min(390px, 100%); font-size: 13px; line-height: 1.45; }
+  .phone { width: 390px; max-width: 100%; background: #1b2421; border-radius: 28px; padding: 8px; margin-top: 12px; }
+  .screen { background: #f4f7f5; border-radius: 22px; min-height: 720px; display: flex; flex-direction: column; }
+  .bar { min-height: 64px; display: flex; align-items: center; padding: 0 8px 0 16px; }
+  .bar h1 { margin: 0; font-size: 22px; font-weight: 500; flex: 1; }
+  .icon { width: 48px; height: 48px; border: 0; background: transparent; font-size: 20px; }
+  .bill { margin: 0 16px; font-size: 16px; line-height: 1.4; }
+  .amount { margin: 12px 16px 0; font-size: 44px; font-weight: 560; letter-spacing: -0.03em; font-variant-numeric: tabular-nums; }
+  .unit { font-size: 14px; color: #5c6560; margin-right: 6px; }
+  .row { display: flex; justify-content: space-between; gap: 12px; margin: 0 16px; padding: 14px 0; border-top: 1px solid #d5ddd8; font-size: 16px; }
+  .row span { color: #5c6560; }
+  .dock { margin-top: auto; padding: 8px 16px 20px; }
+  .primary { width: 100%; min-height: 48px; border: 0; border-radius: 20px; background: #0f6e56; color: #fff; font: inherit; font-size: 16px; }
+  .danger { width: 100%; min-height: 48px; margin-top: 4px; border: 0; background: transparent; color: #8c1d18; font: inherit; font-size: 15px; }
+</style>
+</head>
+<body>
+  <p class="meta"><strong>评审后 · Android · 示例数据。</strong>沿用「系统密表」方向：金额成为唯一的大字，删除与保存不同形，长标题完整换行。顶栏溢出里仍是设置。不是安卓真机。</p>
+  <div class="phone"><div class="screen">
+    <header class="bar">
+      <h1>记一笔</h1>
+      <button class="icon" type="button" aria-label="设置">⋮</button>
+    </header>
+    <p class="bill">2026年11月家庭水电燃气合缴账单（含滞纳金说明）</p>
+    <p class="amount"><span class="unit">CNY</span>328.00</p>
+    <div class="row"><span>分类</span><b>家用</b></div>
+    <div class="row"><span>状态</span><b>尚未保存</b></div>
+    <div class="dock">
+      <button class="primary" type="button">保存</button>
+      <button class="danger" type="button">删除这笔</button>
+    </div>
+  </div></div>
+  <p class="foot">相对评审前保留：金额 328.00、分类「家用」、整句账单标题、保存、删除。补回设置入口。去掉同权卡片和卡片里的卡片。删除仍在，只是不再用填充主按钮的外形；确认或撤销留在下一层，这一屏先把角色分开。绿色是示例决定。</p>
+</body>
+</html>

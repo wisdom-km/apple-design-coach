@@ -13,7 +13,7 @@ Given a **product surface** and **requirements**, plus optional **screenshots** 
 - Browser extension popup, side panel, and options page.
 - Installed desktop app: Windows, macOS, or Linux (GNOME or KDE). Windows is not a stand-in for every desktop. macOS is not the default desktop.
 
-The skill asks only for a choice that is still missing. A stated platform is used as-is. When the user asks to see the interface, a viewable draft comes after the design contract; a wireframe is not renamed into a mockup.
+The skill asks only for a choice that is still missing. A stated platform is used as-is. When the user asks to see the interface, a missing visual direction is chosen before the full draft. A later screen reuses the project’s existing design notes. After a viewable draft, a short critique is applied to the draft itself. A wireframe is not renamed into a mockup.
 
 1. Design contract (Purpose, non-goals, tradeoffs)
 2. Feature placement / information architecture
@@ -44,6 +44,9 @@ apple-design-coach/
     platform-router.md
     aesthetics.md
     visual-drafts.md
+    direction-choice.md
+    design-memory.md
+    draft-critique.md
     source-provenance.md
   examples/
     aa-split-ios-coaching.md
@@ -75,7 +78,7 @@ If **both** screenshot and wireframe are present: align **wireframe intent first
 
 See [`examples/aa-split-ios-coaching.md`](examples/aa-split-ios-coaching.md) — redesign of a cluttered “split the bill” iOS tool into a Purpose-first single-screen coach output.
 
-[`examples/scenario-router.md`](examples/scenario-router.md) records how platform questions should resolve. [`examples/drafts/`](examples/drafts/) holds offline HTML drafts for an iOS phone, an Android phone, a responsive website, an extension popup, and installed Windows, macOS, and GNOME windows. Those files are example designs with invented sample data. [`examples/drafts/screenshots/`](examples/drafts/screenshots/) shows those HTML files opened in a desktop browser on 2026-11-17. A browser screenshot is not a test on a phone or on Windows, macOS, or Linux.
+[`examples/scenario-router.md`](examples/scenario-router.md) records how platform questions should resolve. [`examples/scenario-first3.md`](examples/scenario-first3.md) separates the expected direction, memory, and critique behavior from what this repository actually exercised. [`examples/project-memory/`](examples/project-memory/) is a sample project design note plus a platform context that only points at it. [`examples/drafts/`](examples/drafts/) holds offline HTML drafts for an iOS phone, an Android phone, a responsive website, an extension popup, and installed Windows, macOS, and GNOME windows, plus three Android direction thumbnails and a before/after ledger screen. Those files are example designs with invented sample data. [`examples/drafts/screenshots/`](examples/drafts/screenshots/) shows those HTML files opened in a desktop browser on 2026-11-17. A browser screenshot is not a test on a phone or on Windows, macOS, or Linux.
 
 Source URLs, licenses, and what was actually read are in [`references/source-provenance.md`](references/source-provenance.md).
 
