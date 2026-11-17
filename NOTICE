@@ -5,3 +5,14 @@ or sponsored by Apple Inc.
 Canonical sources:
 - https://developer.apple.com/design/human-interface-guidelines/design-principles
 - https://developer.apple.com/videos/play/wwdc2026/250/
+
+Other platform documents are linked from references/source-provenance.md.
+Their text, trademarks, and code licenses stay with those publishers. This
+repository does not republish those manuals, icon sets, or color systems.
+
+WCAG 2.2 numbers cited in the skill references are taken from the W3C
+Recommendation of 12 December 2024 (https://www.w3.org/TR/WCAG22/).
+Copyright © 2024 World Wide Web Consortium.
+https://www.w3.org/copyright/document-license-2023/
+The Recommendation's status is W3C Recommendation. Only short numeric
+criteria are cited, not a rewritten copy of the specification.

@@ -6,7 +6,14 @@ Not a Human Interface Guidelines encyclopedia. Not a compliance auditor. Not a �
 
 ## What it does
 
-Given a **product surface** (iOS, iPadOS, macOS, Windows, browser extension, …), **requirements**, and optional **screenshots** / **structured wireframes**, it coaches:
+Given a **product surface** and **requirements**, plus optional **screenshots** / **structured wireframes**, it coaches. Surfaces are specific containers, not vague device words:
+
+- Phone: iOS or Android. “Mobile” does not default to iPhone. iPad is separate.
+- Responsive website, including its narrow mobile-web layout. This is not an installed desktop app and not a browser extension.
+- Browser extension popup, side panel, and options page.
+- Installed desktop app: Windows, macOS, or Linux (GNOME or KDE). Windows is not a stand-in for every desktop. macOS is not the default desktop.
+
+The skill asks only for a choice that is still missing. A stated platform is used as-is. When the user asks to see the interface, a viewable draft comes after the design contract; a wireframe is not renamed into a mockup.
 
 1. Design contract (Purpose, non-goals, tradeoffs)
 2. Feature placement / information architecture
@@ -17,7 +24,7 @@ Given a **product surface** (iOS, iPadOS, macOS, Windows, browser extension, …
 
 **Shared philosophy kernel (A):** [Apple HIG Design principles](https://developer.apple.com/design/human-interface-guidelines/design-principles) — Purpose, Agency, Responsibility, Familiarity, Flexibility, Simplicity, Craft, Delight ([WWDC26 Session 250](https://developer.apple.com/videos/play/wwdc2026/250/)).
 
-**Surface adaptation (B):** same intent, host-platform conventions. On Windows / extensions: **borrow the spirit only — never claim Apple HIG compliance.**
+**Surface adaptation (B):** same intent, host-platform conventions. Outside Apple platforms: **borrow the spirit only — never claim Apple HIG compliance.** Android follows Material, the web follows WCAG and ordinary page structure, Windows follows Fluent / WinUI, and Linux follows the chosen desktop guidelines.
 
 ## Install
 
@@ -34,9 +41,18 @@ apple-design-coach/
     placement-playbook.md
     input-visuals.md
     reference-library.md
+    platform-router.md
+    aesthetics.md
+    visual-drafts.md
+    source-provenance.md
   examples/
     aa-split-ios-coaching.md
+    context-android-only.md
+    scenario-router.md
+    drafts/
 ```
+
+Copying this folder is enough. Sibling skills such as `platform-android` are optional and are used only when the host already has them.
 
 ## Inputs
 
@@ -58,6 +74,10 @@ If **both** screenshot and wireframe are present: align **wireframe intent first
 ## Example
 
 See [`examples/aa-split-ios-coaching.md`](examples/aa-split-ios-coaching.md) — redesign of a cluttered “split the bill” iOS tool into a Purpose-first single-screen coach output.
+
+[`examples/scenario-router.md`](examples/scenario-router.md) records how platform questions should resolve. [`examples/drafts/`](examples/drafts/) holds offline HTML drafts for an iOS phone, an Android phone, a responsive website, an extension popup, and installed Windows, macOS, and GNOME windows. Those files are example designs with invented sample data. [`examples/drafts/screenshots/`](examples/drafts/screenshots/) shows those HTML files opened in a desktop browser on 2026-11-17. A browser screenshot is not a test on a phone or on Windows, macOS, or Linux.
+
+Source URLs, licenses, and what was actually read are in [`references/source-provenance.md`](references/source-provenance.md).
 
 ## License
 

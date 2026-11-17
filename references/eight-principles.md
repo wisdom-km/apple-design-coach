@@ -5,6 +5,8 @@
 - https://developer.apple.com/design/human-interface-guidelines/design-principles
 - https://developer.apple.com/videos/play/wwdc2026/250/ （WWDC26 Session 250）
 
+2026-11-17 再次打开：原则页的 Markdown 写明这些原则于 2026-06-08 重新列入；Session 250 的章节名与下列八个词一致。页面 © Apple。这里继续用自己的教练问题，不复制条文。非 Apple 表面只把这些原则当判断方式。详细出处见 `source-provenance.md`。
+
 八原则：**Purpose · Agency · Responsibility · Familiarity · Flexibility · Simplicity · Craft · Delight**
 
 > 原则之间可能冲突；没有保证完美解的公式。教练的工作是显式写出张力与取舍，而不是打分合规。

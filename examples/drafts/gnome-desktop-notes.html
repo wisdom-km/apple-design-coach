@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GNOME 桌面草稿 · Fieldnote</title>
+<style>
+  :root { color-scheme: light; --ink: #241f31; --muted: #5e5c64; --accent: #1c71d8; --line: #deddda; }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: #7d8b99; font-family: "Cantarell", "Segoe UI", sans-serif; color: var(--ink); }
+  .banner, .footnote { max-width: 1080px; margin: 0 auto; padding: 16px 8px 0; color: white; font-size: 13px; line-height: 1.45; }
+  .footnote { padding-bottom: 24px; }
+  .window { max-width: 1080px; margin: 12px auto 0; background: #fafafa; border: 1px solid #cdc7c2; min-height: 640px; display: flex; flex-direction: column; border-radius: 12px; overflow: hidden; }
+  .header { height: 52px; background: #f6f5f4; display: flex; align-items: center; padding: 0 8px 0 16px; border-bottom: 1px solid var(--line); }
+  .header h1 { margin: 0; font-size: 15px; font-weight: 700; }
+  .switch { margin-left: 24px; display: flex; background: #e6e4e2; border-radius: 999px; padding: 3px; }
+  .switch button { border: 0; background: transparent; font: inherit; font-size: 13px; min-height: 28px; padding: 0 12px; border-radius: 999px; }
+  .switch .on { background: #fff; }
+  .spacer { flex: 1; }
+  .header .new { background: var(--accent); color: white; border: 0; border-radius: 999px; min-height: 32px; padding: 0 14px; font: inherit; font-size: 13px; margin-right: 8px; }
+  .wins { display: flex; }
+  .wins button { width: 40px; height: 40px; border: 0; background: transparent; font: inherit; }
+  .body { display: grid; grid-template-columns: 220px 1fr; min-height: 560px; }
+  .side { background: #f6f5f4; padding-top: 8px; border-right: 1px solid var(--line); }
+  .side button, .note { width: calc(100% - 12px); margin: 2px 6px; text-align: left; border: 0; background: transparent; font: inherit; border-radius: 8px; }
+  .side button { min-height: 34px; padding: 0 10px; font-size: 14px; }
+  .side .on { background: #d6e4f5; }
+  article { padding: 32px 40px; }
+  article h2 { margin: 0 0 8px; font-size: 28px; font-weight: 650; }
+  .by { color: var(--muted); font-size: 13px; margin: 0 0 16px; }
+  article p { margin: 0 0 12px; max-width: 62ch; line-height: 1.5; font-size: 16px; }
+  button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+</style>
+</head>
+<body>
+  <p class="banner"><strong>设计草稿 · GNOME 式 Linux 应用 · 示例数据。</strong>不是某一发行版的真机。头栏即标题，关闭在右侧，没有 Mac 菜单栏，也没有 Windows 命令栏。蓝色和圆角是示例决定，不是 Adwaita 令牌。KDE 稿不会长成这样：KDE 会把主路径和菜单留在默认界面，而不是只靠头栏。</p>
+  <div class="window">
+    <header class="header">
+      <h1>Fieldnote</h1>
+      <div class="switch" role="group" aria-label="视图">
+        <button class="on" type="button">在读</button>
+        <button type="button">摘录</button>
+      </div>
+      <div class="spacer"></div>
+      <button class="new" type="button">新建</button>
+      <div class="wins">
+        <button type="button" aria-label="最小化">–</button>
+        <button type="button" aria-label="最大化">□</button>
+        <button type="button" aria-label="关闭">×</button>
+      </div>
+    </header>
+    <div class="body">
+      <nav class="side">
+        <button class="on" type="button">海岸的鸟</button>
+        <button type="button">周六的菜场</button>
+        <button type="button">工坊开放时间</button>
+      </nav>
+      <article>
+        <h2>海岸的鸟</h2>
+        <p class="by">示例数据 · 删除后可以撤销，而不是先弹确认</p>
+        <p>退潮之后，滩上先出现的是脚印，然后才是鸟。GNOME 的原则把常用动作放近，并更倾向让破坏性操作可撤销。这里的取舍写明：没有版本历史时才改成确认，这一稿假设本地有撤销。</p>
+        <p>设置不在主视图。需要时从头栏的次级菜单进入。这不是把 Windows 的 NavigationView 换了字体。</p>
+      </article>
+    </div>
+  </div>
+  <p class="footnote">若用户说的是 KDE 而不是 GNOME，不要复用这个头栏。KDE 的主路径应默认可见，快捷键只是加速。空列表时侧栏写「还没有笔记」，新建仍在头栏。加载用行内进度。离线时笔记仍可写。不在启动时要账户。</p>
+</body>
+</html>
