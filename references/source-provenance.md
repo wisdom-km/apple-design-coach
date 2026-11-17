@@ -79,6 +79,20 @@ Apple HIG 页面标明 © 2026 Apple Inc. All rights reserved。只链接和转�
 
 另：Emil Kowalski 的公开文章把金额列写成 `tabular-nums`，并要求改界面时能指出前后差。站点没有仓库许可，不整篇抄入。本轮采用的是这个做法，不是他的动画课程。
 
+## 排版关系（2026-11-17 的研究笔记）
+
+下面是方法，不是新的像素法律。研究笔记已读正文或文字稿；视频没有看。Calendar 文档里的示意图下载失败，没有当成看过。Presentation Zen 和光学悬挂一文的图片没有看。Carbon 的 8px 小单位和某些断点上的 16px padding 是它自己的网格，不转成 Apple 或 Android 的规定。iOS 默认 17pt、macOS 默认 13pt 只说明数字不能跨平台抄。没有复制字体、图标、主题或组件。
+
+| 来源 | 借 | 不借 |
+|------|----|------|
+| [HIG Layout](https://developer.apple.com/design/human-interface-guidelines/layout.md)、[Typography](https://developer.apple.com/design/human-interface-guidelines/typography.md) | 对齐表示相关，缩进表示从属；文字角色成套；变窄时可以堆叠 | 不把 safe area 和某一条 gutter 写成跨平台像素。Liquid Glass 不进入 Android 密表 |
+| [WWDC22 10056](https://developer.apple.com/videos/play/wwdc2022/10056/) 文字稿，未看视频 | 先写前缘和后缘的意图，再按看到的结果改容器 | 不要求安装 SwiftUI，也不要求每列都按内容收缩 |
+| [WWDC20 10175](https://developer.apple.com/videos/play/wwdc2020/10175/) 文字稿，未看视频 | 先分清布局框和字形侧边，再做光学 | 不把 SF 的 tracking 套到中文 |
+| [Carbon 网格](https://carbondesignsystem.com/guidelines/2x-grid/overview/) 与 [间距](https://carbondesignsystem.com/elements/spacing/overview/)、[Atlassian 间距](https://atlassian.design/foundations/spacing/) 与 [排版](https://atlassian.design/foundations/typography/) | 内容边和背景边分开；间距由父层负责；角色带使用条件 | 不安装这两套系统，不搬它们的品牌字体和表格行高 |
+| [Keynote 对齐对象](https://support.apple.com/guide/keynote/position-and-align-objects-tanb46504b79/mac)、[Slidev 布局](https://sli.dev/guide/layout) | 先定对齐参照和少量版式家族。Slidev 仓库 MIT，不安装 | `fact` 那种超大数字页不是应用首页 |
+
+光学悬挂可以服务可见边缘，见 [Hung Punctuation](https://creativepro.com/typetalk-hung-punctuation-optical-margin-alignment/)。它不给整块金额贴边当理由。站点许可未核对，不整篇抄入。
+
 ## 本轮未当成已读
 
 - Material 导航轨概述页的正文（见上表）。

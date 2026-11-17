@@ -50,6 +50,8 @@ required_snippets = {
         "这句回复所针对的建议",
         "解释后的批准范围",
         "本句没有给出合入许可",
+        "2026-11-17 22:10 Asia/Shanghai",
+        "ok，那就按照你的建议来优化apple design 的skills吧",
     ],
     "references/platform-router.md": [
         "只做安卓",
@@ -78,6 +80,8 @@ required_snippets = {
         "不能只写在句子里",
         "在 HTML 里放大字号不是 iOS 动态字体",
         "看得见的前后差",
+        "内容边",
+        "同位置再看的证据",
     ],
     "examples/scenario-first3.md": [
         "不是 Grok CLI",
@@ -88,14 +92,23 @@ required_snippets = {
     "examples/project-memory/DESIGN.md": [
         "receipt-photo: optional-never-required",
         "系统密表",
+        "内容框",
         "confirmed_by: user",
     ],
     "references/aesthetics.md": [
         "tabular-nums",
         "不能叫做这一帧",
+        "不要把每一帧都说成同样错了",
+        "!important",
     ],
     "references/visual-drafts.md": [
         "不能充当这帧成稿",
+    ],
+    "examples/scenario-layout.md": [
+        "NOT VERIFIED",
+        "不是 Grok CLI",
+        "宿主污染",
+        "同一左线",
     ],
     "examples/scenario-craft.md": [
         "NOT VERIFIED",
@@ -250,6 +263,35 @@ for banned in ("C:\\Users", "19612", "click-review", "Wisdom", "design-platform-
             errors.append(f"{rel} contains private marker {banned}")
 if "改进前" not in craft_before or "请稍候" not in craft_before:
     errors.append("before sheet no longer shows the rough wait button")
+
+def selector_specificity(selector):
+    identifiers = len(re.findall(r"#[A-Za-z0-9_-]+", selector))
+    classes = len(re.findall(r"\.[A-Za-z0-9_-]+", selector))
+    rest = re.sub(r"[.#][A-Za-z0-9_-]+", " ", selector)
+    elements = len(re.findall(r"[A-Za-z]+", rest))
+    return (identifiers, classes, elements)
+
+if not selector_specificity(".notes p") > selector_specificity(".balance"):
+    errors.append("caption descendant rule is not more specific than the balance role")
+pollution = (ROOT / "examples" / "drafts" / "layout-host-pollution.html").read_text(encoding="utf-8")
+intentional = (ROOT / "examples" / "drafts" / "layout-intentional.html").read_text(encoding="utf-8")
+if "首帧不在" not in pollution or ".notes p" not in pollution:
+    errors.append("pollution fixture no longer shows a caption rule outside the first frame")
+if "图标槽" not in intentional or "满宽" not in intentional or "不是错位" not in intentional:
+    errors.append("intentional inset fixture no longer labels the slot and the full-bleed rule")
+if "!important" in intentional:
+    errors.append("intentional fixture hides alignment with !important")
+for rel in (
+    "examples/drafts/layout-host-pollution.html",
+    "examples/drafts/layout-intentional.html",
+    "examples/scenario-layout.md",
+    "references/aesthetics.md",
+    "references/draft-critique.md",
+):
+    text = (ROOT / rel).read_text(encoding="utf-8")
+    for banned in ("C:\\Users", "19612", "click-review", "Wisdom", "design-platform-research"):
+        if banned in text:
+            errors.append(f"{rel} contains private marker {banned}")
 
 if errors:
     print("\n".join(errors))

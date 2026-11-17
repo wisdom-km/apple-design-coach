@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+<meta charset="utf-8">
+<title>反例 · 说明样式污染应用段落</title>
+<style>
+  * { box-sizing: border-box; }
+  body { margin: 0; font-family: sans-serif; background: #e7eeea; color: #1a1c1b; }
+  .app { width: 320px; margin: 12px; background: #f4f7f5; }
+  .bar { padding: 12px 16px; font-weight: 600; }
+  .balance { margin: 0 0.5em; font-size: 32px; font-weight: 600; }
+  .kicker, .sum { margin: 0 1.23em; font-size: 13px; color: #5c6560; }
+  .row { margin: 0 16px; padding: 8px 0; border-top: 1px solid #d5ddd8; }
+  .notes { margin: 12px; }
+  .notes p { margin: 0 0 0.6rem; line-height: 1.5; color: #1c1917; }
+  .caption { font-size: 14px; line-height: 1.45; }
+</style>
+</head>
+<body>
+  <p class="caption">反例 · 示例数据 · 不是真机，也不是 Grok CLI 生成的终稿。用来识别宿主样式污染。</p>
+  <div class="app">
+    <div class="bar">本月</div>
+    <p class="kicker">结余 · 示例数据</p>
+    <p class="balance">2,081.50</p>
+    <p class="sum">支出 68.50</p>
+    <div class="row">11月17日 · 示例账</div>
+  </div>
+  <p class="caption">首帧不在 .notes 里。它不受下面这条规则影响，不要把它也说成错位。</p>
+  <div class="notes">
+    <div class="app">
+      <div class="bar">本月</div>
+      <p class="kicker">结余 · 示例数据</p>
+      <p class="balance">2,081.50</p>
+      <p class="sum">支出 68.50</p>
+      <div class="row">11月17日 · 示例账</div>
+    </div>
+    <p>说明样式用 .notes p 的 margin 简写，清掉了结余、大数字和摘要的左右边距，并改了行高和颜色。列表行的 margin 还在。</p>
+  </div>
+</body>
+</html>

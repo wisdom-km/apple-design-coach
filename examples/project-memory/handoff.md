@@ -5,7 +5,7 @@
 示例数据。不是一份真实产品的开发规格，也不指定技术栈。
 
 - 表面：android-phone。平台范围见 [context.md](context.md)。
-- 视觉记录：[DESIGN.md](DESIGN.md)。颜色角色、字号、密度、组件和 `receipt-photo: optional-never-required` 以那份文件为准。这里不另写色值，也不另建一份记录。
+- 视觉记录：[DESIGN.md](DESIGN.md)。颜色角色、字号、密度、内容边和 `receipt-photo: optional-never-required` 以那份文件为准。这里不另写色值，也不另建一份记录。
 - 保留字段：`receipt-photo: optional-never-required`。更新设计记录时这一行留着。
 
 ## 组件与交互
