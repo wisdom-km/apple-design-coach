@@ -5,6 +5,10 @@
 - https://developer.apple.com/design/human-interface-guidelines/design-principles
 - https://developer.apple.com/videos/play/wwdc2026/250/ （WWDC26 Session 250）
 
+2026-11-17 再次打开：原则页的 Markdown 写明这些原则于 2026-06-08 重新列入；Session 250 的章节名与下列八个词一致。页面 © Apple。这里继续用自己的教练问题，不复制条文。详细出处见 `source-provenance.md`。
+
+这八条是每个表面的判断层，不是只在 iOS、iPadOS、macOS 上生效的可选灵感。Android、Windows、Linux、网页和扩展一样要先过这一层。目标平台的规范负责导航、控件、落位、触控或键盘、窗口 chrome。两条平台规范打架，或原则与平台惯例打架时，写出张力再取舍，不要改成那份规范的合规清单，也不要写成符合 Apple HIG。
+
 八原则：**Purpose · Agency · Responsibility · Familiarity · Flexibility · Simplicity · Craft · Delight**
 
 > 原则之间可能冲突；没有保证完美解的公式。教练的工作是显式写出张力与取舍，而不是打分合规。
@@ -56,7 +60,7 @@
 
 **合同中应留下：** 权限时机、最小范围、拒绝后路径、安全护栏。
 
-**非 Apple 表面：** 同样用此精神谈隐私与安全，但引用该平台权限模型，不写「符合 HIG」。
+**非 Apple 表面：** Responsibility 同样必须写。权限对话框用该平台自己的模型。不写「符合 HIG」。
 
 ---
 

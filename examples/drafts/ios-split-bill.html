@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>iOS 手机草稿 · 餐后 AA</title>
+<style>
+  :root {
+    color-scheme: light;
+    --ink: #1c1c1e;
+    --secondary: #6e6e73;
+    --line: #e5e5ea;
+    --canvas: #d9d6d1;
+    --screen: #f2f2f7;
+    --group: #ffffff;
+    --accent: #0a84ff;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    min-height: 100vh;
+    background: var(--canvas);
+    color: var(--ink);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 28px 16px 40px;
+  }
+  .meta {
+    width: min(390px, 100%);
+    margin-bottom: 14px;
+    color: #3a3a3c;
+    font-size: 13px;
+    line-height: 1.45;
+  }
+  .meta strong { font-weight: 650; }
+  .phone {
+    width: 390px;
+    max-width: 100%;
+    background: #111;
+    border-radius: 36px;
+    padding: 10px;
+    box-shadow: 0 18px 50px rgba(0,0,0,.18);
+  }
+  .screen {
+    background: var(--screen);
+    border-radius: 28px;
+    min-height: 780px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+  .status {
+    height: 54px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    padding: 0 22px 8px;
+    font-size: 15px;
+    font-weight: 650;
+  }
+  .status span { font-weight: 500; font-size: 12px; letter-spacing: .04em; color: var(--secondary); }
+  .nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 4px 16px 8px;
+  }
+  .nav h1 { margin: 0; font-size: 17px; font-weight: 650; }
+  button, .step button {
+    font: inherit;
+    border: 0;
+    background: transparent;
+    color: var(--accent);
+    min-width: 44px;
+    min-height: 44px;
+  }
+  .group {
+    margin: 8px 16px;
+    background: var(--group);
+    border-radius: 12px;
+    overflow: hidden;
+  }
+  .amount { padding: 18px 16px 16px; }
+  .kicker {
+    margin: 0;
+    color: var(--secondary);
+    font-size: 13px;
+  }
+  .amount strong {
+    display: block;
+    margin-top: 6px;
+    text-align: right;
+    font-size: 40px;
+    font-weight: 560;
+    letter-spacing: -0.03em;
+    font-variant-numeric: tabular-nums;
+  }
+  .amount em { font-style: normal; color: var(--secondary); font-size: 15px; margin-right: 8px; }
+  .row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    min-height: 52px;
+    padding: 4px 16px;
+    border-top: 1px solid var(--line);
+  }
+  .row p { margin: 0; font-size: 17px; }
+  .step { display: flex; align-items: center; gap: 4px; }
+  .step b { min-width: 1.4em; text-align: center; font-variant-numeric: tabular-nums; }
+  .segments { display: flex; background: #f2f2f7; border-radius: 8px; padding: 2px; }
+  .segments span {
+    min-width: 44px;
+    min-height: 28px;
+    padding: 0 10px;
+    display: grid;
+    place-items: center;
+    font-size: 13px;
+    color: var(--ink);
+    border-radius: 7px;
+  }
+  .segments .on { background: #fff; font-weight: 650; }
+  .result {
+    margin-top: auto;
+    background: #fff;
+    padding: 22px 20px 28px;
+    border-top: 1px solid var(--line);
+  }
+  .result .kicker { text-align: center; }
+  .result .pay {
+    margin: 4px 0 2px;
+    text-align: center;
+    font-size: 56px;
+    font-weight: 620;
+    letter-spacing: -0.04em;
+    font-variant-numeric: tabular-nums;
+  }
+  .result .sub { margin: 0 0 16px; text-align: center; color: var(--secondary); font-size: 15px; }
+  .primary {
+    width: 100%;
+    height: 50px;
+    border-radius: 12px;
+    background: var(--accent);
+    color: white;
+    font-size: 17px;
+    font-weight: 650;
+  }
+  .footnote {
+    width: min(390px, 100%);
+    margin-top: 14px;
+    font-size: 12px;
+    line-height: 1.5;
+    color: #3a3a3c;
+  }
+</style>
+</head>
+<body>
+  <p class="meta"><strong>设计草稿 · iOS 手机 · 示例数据。</strong>不是 iPhone 真机，也不是已经实现的应用。蓝色、12 px 圆角和 50 px 按钮高度是示例决定；触控热区按 HIG Buttons 的 44 pt 留出。单任务，无 Tab。</p>
+  <div class="phone">
+    <div class="screen">
+      <div class="status">9:41 <span>草稿</span></div>
+      <div class="nav">
+        <h1>AA</h1>
+        <button type="button">设置</button>
+      </div>
+      <section class="group">
+        <div class="amount">
+          <p class="kicker">总额</p>
+          <strong><em>CNY</em>328.00</strong>
+        </div>
+        <div class="row">
+          <p>人数</p>
+          <div class="step">
+            <button type="button" aria-label="减少人数">−</button>
+            <b>4</b>
+            <button type="button" aria-label="增加人数">+</button>
+          </div>
+        </div>
+        <div class="row">
+          <p>小费</p>
+          <div class="segments" role="group" aria-label="小费">
+            <span>无</span>
+            <span class="on">10%</span>
+            <span>定额</span>
+          </div>
+        </div>
+      </section>
+      <section class="result">
+        <p class="kicker">每人应付</p>
+        <p class="pay">¥90.20</p>
+        <p class="sub">含小费 ¥36 · 共 4 人</p>
+        <button class="primary" type="button">复制结果</button>
+      </section>
+    </div>
+  </div>
+  <p class="footnote">空：总额清空时结果改为「输入总额」，复制按钮不可用。错误：非法金额在总额下用一行字说明，不弹系统警告。加载、联网和权限：不适用，计算在本地完成，不申请相册或通讯录。离线：本来就离线。设置里只有货币和取整。</p>
+</body>
+</html>

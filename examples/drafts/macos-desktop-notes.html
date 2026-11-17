@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>macOS 桌面草稿 · Fieldnote</title>
+<style>
+  :root { color-scheme: light; --ink: #1d1d1f; --muted: #6e6e73; --line: #d8d8dc; }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: #8e99a4; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; color: var(--ink); }
+  .banner, .footnote { max-width: 1080px; margin: 0 auto; padding: 16px 8px 0; color: white; font-size: 13px; line-height: 1.45; }
+  .footnote { padding-bottom: 24px; }
+  .desktop { max-width: 1080px; margin: 12px auto 0; }
+  .menubar { height: 24px; background: rgba(246,246,246,.92); display: flex; align-items: center; gap: 16px; padding: 0 12px; font-size: 13px; font-weight: 560; }
+  .menubar span { font-weight: 500; color: #333; }
+  .window { margin-top: 16px; background: #fff; border-radius: 10px; overflow: hidden; border: 1px solid rgba(0,0,0,.18); min-height: 600px; display: flex; flex-direction: column; }
+  .toolbar { height: 52px; display: flex; align-items: center; gap: 10px; padding: 0 12px; border-bottom: 1px solid var(--line); background: #f6f6f6; }
+  .lights { display: flex; gap: 6px; width: 68px; }
+  .lights i { width: 12px; height: 12px; border-radius: 50%; display: block; }
+  .lights .r { background: #ff5f57; } .lights .y { background: #febc2e; } .lights .g { background: #28c840; }
+  .title { font-size: 13px; font-weight: 600; }
+  .search { margin-left: auto; background: #fff; border: 1px solid #d0d0d4; border-radius: 6px; min-height: 28px; padding: 0 10px; font: inherit; font-size: 13px; color: var(--muted); }
+  .new { border: 0; background: transparent; color: #0068d6; font: inherit; font-size: 13px; min-height: 28px; min-width: 44px; }
+  .body { display: grid; grid-template-columns: 200px 240px 1fr; min-height: 548px; }
+  .side { background: #ececee; padding-top: 8px; }
+  .side button, .list button { width: 100%; text-align: left; border: 0; background: transparent; font: inherit; }
+  .side button { min-height: 28px; padding: 0 12px; font-size: 13px; border-radius: 6px; width: calc(100% - 12px); margin: 1px 6px; }
+  .side .on { background: #d6d6da; }
+  .list { border-right: 1px solid var(--line); }
+  .list button { padding: 8px 12px; min-height: 44px; border-bottom: 1px solid var(--line); }
+  .list .on { background: #f2f6fb; }
+  .list small, .by { display: block; color: var(--muted); font-size: 12px; margin-top: 2px; }
+  article { padding: 28px 32px; }
+  article h2 { margin: 0 0 8px; font-size: 28px; font-weight: 650; letter-spacing: -0.02em; }
+  article p { margin: 0 0 12px; font-size: 15px; line-height: 1.5; max-width: 62ch; }
+  button:focus-visible { outline: 2px solid #0068d6; outline-offset: 2px; }
+</style>
+</head>
+<body>
+  <p class="banner"><strong>设计草稿 · 安装的 macOS 应用 · 示例数据。</strong>不是 Mac 真机。菜单栏属于屏幕，不属于窗口内容。关闭按钮在左侧。与 Windows 稿是同一篇笔记、不同的发现方式：完整命令在菜单里，工具栏只留搜索和新建。蓝色是示例决定。</p>
+  <div class="desktop">
+    <div class="menubar">
+      Fieldnote
+      <span>文件</span><span>编辑</span><span>查看</span><span>窗口</span>
+    </div>
+    <div class="window">
+      <div class="toolbar">
+        <div class="lights" aria-hidden="true"><i class="r"></i><i class="y"></i><i class="g"></i></div>
+        <div class="title">Fieldnote</div>
+        <button class="search" type="button">搜索</button>
+        <button class="new" type="button">新建</button>
+      </div>
+      <div class="body">
+        <nav class="side">
+          <button class="on" type="button">在读</button>
+          <button type="button">摘录</button>
+          <button type="button">设置</button>
+        </nav>
+        <div class="list">
+          <button class="on" type="button">海岸的鸟<small>野外记录</small></button>
+          <button type="button">周六的菜场<small>清单</small></button>
+          <button type="button">工坊开放时间<small>通知</small></button>
+        </div>
+        <article>
+          <h2>海岸的鸟</h2>
+          <p class="by">示例数据 · 删除在「文件」菜单里，并会确认</p>
+          <p>退潮之后，滩上先出现的是脚印，然后才是鸟。菜单栏保证删除、导出和设置即使不在工具栏上也能被找到。</p>
+          <p>侧边栏是窗口的一部分。不要把这张图叫做网站：没有地址栏，命令也不在页面流里。</p>
+        </article>
+      </div>
+    </div>
+  </div>
+  <p class="footnote">空、加载、错误和离线与 Windows 稿同一产品决定，只是 chrome 不同。权限：不在启动时要通讯录或日历。键盘：菜单命令都有等效入口，悬停不是唯一路径。这张稿没有声称符合某一条间距 pt 值。</p>
+</body>
+</html>

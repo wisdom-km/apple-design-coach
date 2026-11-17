@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>网页草稿 · Fieldnote</title>
+<style>
+  :root {
+    color-scheme: light;
+    --paper: #f4f0e6;
+    --ink: #221c16;
+    --muted: #6b6258;
+    --line: #ddd4c4;
+    --cloth: #8d3d32;
+    --chrome: #eceae4;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: #cfc8bc; color: var(--ink); font-family: "Segoe UI", sans-serif; }
+  .banner, .footnote {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 16px 20px 0;
+    font-size: 13px;
+    line-height: 1.45;
+  }
+  .footnote { padding-bottom: 28px; }
+  .browser {
+    max-width: 960px;
+    margin: 12px auto 0;
+    background: var(--chrome);
+    border: 1px solid #c9c2b4;
+    border-radius: 10px 10px 0 0;
+    overflow: hidden;
+  }
+  .chrome { display: flex; gap: 8px; align-items: center; padding: 8px 10px; }
+  .dots { display: flex; gap: 5px; }
+  .dots i { width: 10px; height: 10px; border-radius: 50%; background: #c8c2b6; display: block; }
+  .tab {
+    background: var(--paper);
+    border-radius: 8px 8px 0 0;
+    padding: 6px 12px;
+    font-size: 13px;
+  }
+  .url {
+    flex: 1;
+    background: #fff;
+    border-radius: 999px;
+    padding: 6px 12px;
+    font-size: 12px;
+    color: var(--muted);
+  }
+  .page { background: var(--paper); min-height: 640px; }
+  header.site {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 18px 28px;
+    border-bottom: 1px solid var(--line);
+  }
+  .word { font-family: Georgia, "Iowan Old Style", Palatino, serif; font-size: 22px; margin: 0; }
+  nav { display: flex; gap: 18px; font-size: 14px; }
+  nav a { color: var(--ink); text-decoration: none; min-height: 44px; display: grid; place-items: center; }
+  nav a[aria-current="page"] { box-shadow: inset 0 -2px 0 var(--cloth); }
+  nav a:focus-visible, button:focus-visible { outline: 2px solid var(--cloth); outline-offset: 3px; }
+  .layout { display: grid; grid-template-columns: 280px 1fr; min-height: 560px; }
+  .list { border-right: 1px solid var(--line); padding: 8px 0; }
+  .list button {
+    width: 100%;
+    text-align: left;
+    border: 0;
+    background: transparent;
+    color: inherit;
+    font: inherit;
+    padding: 14px 22px;
+    min-height: 44px;
+    border-left: 3px solid transparent;
+  }
+  .list .on { border-left-color: var(--cloth); background: rgba(141,61,50,.06); }
+  .list small { display: block; color: var(--muted); margin-top: 3px; }
+  article { padding: 36px 48px 48px; max-width: 68ch; }
+  article h2 {
+    font-family: Georgia, "Iowan Old Style", Palatino, serif;
+    font-weight: 500;
+    font-size: 40px;
+    line-height: 1.15;
+    margin: 0 0 8px;
+  }
+  .by { color: var(--muted); margin: 0 0 22px; font-size: 14px; }
+  article p { font-family: Georgia, "Iowan Old Style", Palatino, serif; font-size: 19px; line-height: 1.55; margin: 0 0 16px; }
+  .save {
+    margin-top: 8px;
+    background: var(--cloth);
+    color: #fff;
+    border: 0;
+    min-height: 44px;
+    padding: 0 18px;
+    font: inherit;
+    font-size: 15px;
+  }
+  @media (max-width: 720px) {
+    .layout { grid-template-columns: 1fr; }
+    .list { border-right: 0; border-bottom: 1px solid var(--line); }
+    article { padding: 24px 20px 36px; }
+    article h2 { font-size: 32px; }
+    header.site { padding: 14px 16px; }
+    nav { gap: 10px; }
+  }
+</style>
+</head>
+<body>
+  <p class="banner"><strong>设计草稿 · 普通响应式网站 · 示例数据。</strong>上面的圆点和地址栏表示浏览器自己的 chrome，不属于网页内容。窄窗口会改成单列，那仍是 mobile web，不是 iOS 或 Android 应用，也不是扩展弹窗。浏览器里打开这一页不是真机测试。布面红色是示例决定。</p>
+  <div class="browser">
+    <div class="chrome">
+      <div class="dots" aria-hidden="true"><i></i><i></i><i></i></div>
+      <div class="tab">Fieldnote</div>
+      <div class="url">example.invalid/notes</div>
+    </div>
+    <div class="page">
+      <header class="site">
+        <p class="word">Fieldnote</p>
+        <nav>
+          <a href="#reading" aria-current="page">在读</a>
+          <a href="#clips">摘录</a>
+          <a href="#about">关于</a>
+        </nav>
+      </header>
+      <div class="layout">
+        <div class="list">
+          <button class="on" type="button">海岸的鸟<small>野外记录 · 4 分钟</small></button>
+          <button type="button">周六的菜场<small>清单 · 1 分钟</small></button>
+          <button type="button">工坊开放时间<small>通知 · 1 分钟</small></button>
+        </div>
+        <article>
+          <h2>海岸的鸟</h2>
+          <p class="by">示例数据 · 一篇公开的读书笔记，不是真实用户内容</p>
+          <p>退潮之后，滩上先出现的是脚印，然后才是鸟。这篇笔记只保留观察顺序：先写地点和风，再写种类，最后写没看清的那一只。</p>
+          <p>长句被限制在大约一行六十字，避免宽屏幕把正文拉成一条难读的灰带。旁边的名单是同一页的导航，不是一张张等重的卡片。</p>
+          <button class="save" type="button">放入摘录</button>
+        </article>
+      </div>
+    </div>
+  </div>
+  <p class="footnote">空：名单为空时，右栏改成一句「还没有笔记」和「写第一条」。加载：列表区用一行「正在读取」而不是挡住全文的动画。错误：读取失败时保留名单，正文换成可重试的一句。离线：已打开的笔记仍可阅读，写入摘录时说明会在联网后保存。权限：不在打开网站时要通知或位置。焦点框在键盘到达链接和按钮时可见。</p>
+</body>
+</html>

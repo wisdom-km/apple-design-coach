@@ -54,6 +54,8 @@
 | [Growth.Design](https://growth.design/) | 想知道某一步为什么让人放心或让人流失 | 用连环画拆解真实产品体验 | 免费 |
 | [Game UI Database](https://www.gameuidatabase.com/) | 信息量极大、要排层级（HUD、背包、设置） | 按 UI 功能分类的游戏截图 | 免费 |
 
+平台权威来源、许可和「本轮有没有读到正文」记在 `source-provenance.md`。官方网页不是因为能打开就属于 MIT。下面的表保留 2026-11-15 的用法；本轮没有把每一条付费库重开一遍。
+
 ### 平台惯例与组件（Familiarity 依据）
 
 | 来源 | 何时翻 | 备注 |

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Android 收据照片 · 拒绝之后</title>
+<style>
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: #d5ddd8;
+    color: #1a1c1b;
+    font-family: Roboto, "Noto Sans", "Segoe UI", sans-serif;
+    font-size: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 16px 12px 28px;
+  }
+  .meta, .foot { width: min(390px, 100%); font-size: 14px; line-height: 1.45; }
+  .phone { width: min(390px, 100%); background: #1b2421; border-radius: 28px; padding: 8px; margin-top: 12px; }
+  .screen { background: #f4f7f5; border-radius: 22px; min-height: 640px; display: flex; flex-direction: column; }
+  .bar { min-height: 64px; display: flex; align-items: center; padding: 0 16px; }
+  .bar h1 { margin: 0; font-size: 22px; font-weight: 500; }
+  .copy { margin: 8px 16px 0; font-size: 16px; line-height: 1.45; overflow-wrap: anywhere; }
+  .amount { margin: 12px 16px 0; font-size: 40px; font-weight: 560; }
+  .dock { margin-top: auto; padding: 8px 16px 20px; }
+  .primary, .text { width: 100%; min-height: 48px; border: 0; font: inherit; font-size: 16px; }
+  .primary { border-radius: 20px; background: #0f6e56; color: #fff; }
+  .text { margin-top: 4px; background: transparent; color: #143d34; }
+</style>
+</head>
+<body>
+  <p class="meta"><strong>可选路径 · Android · 示例数据 · 不是安卓真机权限弹窗。</strong>只有用户点了「附收据照片」才到这里。主路径的记一笔和账单列表不画这一屏。</p>
+  <div class="phone"><div class="screen">
+    <header class="bar"><h1>收据照片</h1></header>
+    <p class="copy">拒绝。相机这次不能用。收据照片不是保存的前提，可以不附照片把这笔记下，也可以再试一次。</p>
+    <p class="copy">2026年11月家庭水电燃气合缴账单（含滞纳金说明）</p>
+    <p class="amount">328.00</p>
+    <div class="dock">
+      <button class="primary" type="button">保存这笔，不附照片</button>
+      <button class="text" type="button">再试一次</button>
+    </div>
+  </div></div>
+  <p class="foot">覆盖：已画拒绝、再试一次，以及降级后的保存。字段保持 receipt-photo: optional-never-required，引自项目的 DESIGN.md，不在这里改成必填。这不是系统权限对话框的真机测试。</p>
+</body>
+</html>

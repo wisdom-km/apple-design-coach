@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Windows 桌面草稿 · Fieldnote</title>
+<style>
+  :root { color-scheme: light; --accent: #005fb8; --ink: #1a1a1a; --muted: #5d5d5d; --line: #e5e5e5; }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: #6e7780; font-family: "Segoe UI", sans-serif; color: var(--ink); }
+  .banner, .footnote { max-width: 1080px; margin: 0 auto; padding: 16px 8px 0; color: #fff; font-size: 13px; line-height: 1.45; }
+  .footnote { padding-bottom: 24px; color: #e8eaed; }
+  .window { max-width: 1080px; margin: 12px auto 0; background: #fff; border: 1px solid #b9b9b9; min-height: 640px; display: flex; flex-direction: column; }
+  .titlebar { height: 36px; background: #f3f3f3; display: flex; align-items: center; padding-left: 12px; border-bottom: 1px solid #e5e5e5; }
+  .titlebar strong { font-weight: 600; font-size: 12px; }
+  .caption { margin-left: auto; display: flex; height: 100%; }
+  .caption button { width: 46px; height: 100%; border: 0; background: transparent; font: inherit; font-size: 12px; }
+  .caption .close:hover { background: #c42b1c; color: white; }
+  .command { height: 48px; display: flex; align-items: center; gap: 8px; padding: 0 12px; border-bottom: 1px solid var(--line); }
+  .command button, .search { min-height: 32px; border: 1px solid #d1d1d1; background: #fff; font: inherit; font-size: 13px; padding: 0 12px; }
+  .command .main { background: var(--accent); color: white; border-color: var(--accent); }
+  .command .danger { color: #a4262c; margin-right: auto; }
+  .search { margin-left: auto; width: 220px; text-align: left; color: var(--muted); }
+  .body { display: grid; grid-template-columns: 200px 260px 1fr; min-height: 540px; }
+  .nav { background: #f3f3f3; padding-top: 8px; }
+  .nav button { width: 100%; text-align: left; border: 0; background: transparent; font: inherit; font-size: 14px; min-height: 36px; padding: 0 12px; border-left: 3px solid transparent; }
+  .nav .on { background: #e5f1fb; border-left-color: var(--accent); }
+  .list { border-right: 1px solid var(--line); }
+  .list button { width: 100%; text-align: left; border: 0; background: #fff; font: inherit; padding: 10px 12px; min-height: 48px; border-bottom: 1px solid var(--line); }
+  .list .on { background: #f5f9fd; }
+  .list small, article .by { display: block; color: var(--muted); font-size: 12px; margin-top: 2px; }
+  article { padding: 28px 32px; }
+  article h2 { margin: 0 0 8px; font-size: 28px; font-weight: 600; }
+  article p { margin: 0 0 12px; font-size: 15px; line-height: 1.5; max-width: 62ch; }
+  button:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
+</style>
+</head>
+<body>
+  <p class="banner"><strong>设计草稿 · 安装的 Windows 应用 · 示例数据。</strong>不是 Windows 真机，也不是浏览器网站。标题栏按钮在右侧。蓝色是示例决定，用来近似常见的系统强调色，不是声称的 WinUI 令牌。本轮没有引用一条官方的最小点击像素，所以控件跟随紧凑的桌面密度，并保留键盘焦点。</p>
+  <div class="window">
+    <div class="titlebar">
+      <strong>Fieldnote</strong>
+      <div class="caption">
+        <button type="button" aria-label="最小化">—</button>
+        <button type="button" aria-label="最大化">□</button>
+        <button class="close" type="button" aria-label="关闭">✕</button>
+      </div>
+    </div>
+    <div class="command">
+      <button class="main" type="button">新建</button>
+      <button class="danger" type="button">删除</button>
+      <button class="search" type="button">搜索笔记</button>
+    </div>
+    <div class="body">
+      <nav class="nav">
+        <button class="on" type="button">在读</button>
+        <button type="button">摘录</button>
+        <button type="button">设置</button>
+      </nav>
+      <div class="list">
+        <button class="on" type="button">海岸的鸟<small>野外记录</small></button>
+        <button type="button">周六的菜场<small>清单</small></button>
+        <button type="button">工坊开放时间<small>通知</small></button>
+      </div>
+      <article>
+        <h2>海岸的鸟</h2>
+        <p class="by">示例数据 · 与网页草稿同一篇笔记，窗口习惯不同</p>
+        <p>退潮之后，滩上先出现的是脚印，然后才是鸟。桌面把名单和正文同时留下，因为窗口够宽，而且指针可以在两栏之间移动。</p>
+        <p>删除与新建不同形。删除会先确认，因为这里没有自动版本历史。设置在左侧导航的末项，不占用命令栏。</p>
+      </article>
+    </div>
+  </div>
+  <p class="footnote">空：名单为空时，阅读区写「还没有笔记」。加载：名单顶上一行进度，不挡住命令栏。错误：保留已打开的笔记。离线：本地笔记仍可编辑，同步状态写在命令栏右侧（这一稿没做同步，故不放图标）。权限：不在启动时要账户。</p>
+</body>
+</html>

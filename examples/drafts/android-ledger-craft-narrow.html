@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>窄窗口与大字 · 系统密表</title>
+<style>
+  * { box-sizing: border-box; }
+  body { margin: 0; background: #e7eeea; color: #1a1c1b; font-family: Roboto, "Noto Sans", "Segoe UI", sans-serif; }
+  .wrap { width: min(360px, 100%); margin: 0 auto; background: #f4f7f5; min-height: 100vh; }
+  .note { margin: 0; padding: 12px 14px; font-size: 13px; line-height: 1.4; color: #3d4742; }
+  .row { display: grid; grid-template-columns: minmax(0, 1fr) 5.25rem; gap: 8px; margin: 0 14px; padding: 12px 0; border-top: 1px solid #d5ddd8; }
+  .title { margin: 0; font-size: 16px; line-height: 1.35; letter-spacing: 0; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+  .meta { margin: 4px 0 0; color: #5c6560; font-size: 13px; }
+  .amt { margin: 0; text-align: right; font-weight: 650; font-variant-numeric: tabular-nums; }
+  .big { font-size: 150%; }
+  .big .title { font-size: 1rem; }
+  h2 { margin: 18px 14px 8px; font-size: 14px; }
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <p class="note">窄窗口 · 示例数据 · 不是安卓真机，也不是动态字体。上面是正文宽度，下面同一行放到 150%。金额列还在，长标题仍最多两行。</p>
+    <article class="row">
+      <div>
+        <p class="title">2026年11月家庭水电燃气合缴账单（含滞纳金说明）</p>
+        <p class="meta">家用 · 支出</p>
+      </div>
+      <p class="amt">−36.00</p>
+    </article>
+    <h2>字号 150%</h2>
+    <article class="row big">
+      <div>
+        <p class="title">2026年11月家庭水电燃气合缴账单（含滞纳金说明）</p>
+        <p class="meta">家用 · 支出</p>
+      </div>
+      <p class="amt">−36.00</p>
+    </article>
+    <p class="note">全文仍是：2026年11月家庭水电燃气合缴账单（含滞纳金说明）。这里没有把它只留在被截断的一行里。</p>
+  </div>
+</body>
+</html>

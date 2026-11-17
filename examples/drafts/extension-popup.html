@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>扩展弹窗草稿 · Fieldnote</title>
+<style>
+  :root { color-scheme: light; }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    min-height: 100vh;
+    background: #9aa0a6;
+    font-family: "Segoe UI", sans-serif;
+    color: #202124;
+  }
+  .banner, .footnote {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 16px 16px 0;
+    color: #fff;
+    font-size: 13px;
+    line-height: 1.45;
+  }
+  .footnote { color: #e8eaed; padding-bottom: 24px; }
+  .host {
+    max-width: 760px;
+    margin: 16px auto;
+    background: #f8f9fa;
+    min-height: 460px;
+    padding: 28px;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 320px;
+    gap: 24px;
+    align-items: start;
+  }
+  .host h1 { font-family: Georgia, Palatino, serif; font-weight: 500; font-size: 28px; margin: 0 0 8px; }
+  .host p { color: #3c4043; line-height: 1.5; }
+  .popup {
+    width: 320px;
+    background: #fff;
+    border: 1px solid #dadce0;
+    box-shadow: 0 8px 28px rgba(0,0,0,.18);
+    padding: 14px 14px 12px;
+  }
+  .popup h2 { margin: 0; font-size: 14px; font-weight: 650; }
+  .popup .page { margin: 10px 0 0; font-size: 15px; }
+  .popup .page small { display: block; color: #5f6368; font-size: 12px; margin-top: 2px; }
+  .primary {
+    margin-top: 14px;
+    width: 100%;
+    min-height: 40px;
+    border: 0;
+    background: #8d3d32;
+    color: white;
+    font: inherit;
+    font-size: 14px;
+  }
+  .link {
+    display: block;
+    margin-top: 8px;
+    color: #174ea6;
+    font-size: 13px;
+    min-height: 32px;
+    padding-top: 6px;
+  }
+  button:focus-visible, a:focus-visible { outline: 2px solid #174ea6; outline-offset: 2px; }
+</style>
+</head>
+<body>
+  <p class="banner"><strong>设计草稿 · 浏览器扩展弹窗 · 示例数据。</strong>灰色网页是宿主页。白框是弹窗，只做「保存这一页」。它不是上一份 Fieldnote 网站，也不是缩小后的桌面应用。浏览器里看这个弹窗不是真机测试。布面红色是示例决定，与网站草稿同一产品，但容器不同。</p>
+  <div class="host">
+    <div>
+      <h1>海岸的鸟</h1>
+      <p>宿主页继续显示用户正在看的文章。扩展不盖住这段正文，弹窗落在旁边，做完可以关掉。</p>
+    </div>
+    <div class="popup">
+      <h2>Fieldnote</h2>
+      <p class="page">海岸的鸟<small>example.invalid/notes/birds</small></p>
+      <button class="primary" type="button">保存到在读</button>
+      <a class="link" href="#options">在选项页打开完整书库</a>
+    </div>
+  </div>
+  <p class="footnote">空：当前页无法识别时，主按钮改为不可用，并写「这一页没有可保存的地址」。错误：保存失败留在弹窗里一行字，不跳走。权限：只在点击保存、且尚未得到书库权限时再问。账户、通知和默认书库都在选项页，不在这个弹窗里。离线：按钮旁说明将在联网后写入。</p>
+</body>
+</html>

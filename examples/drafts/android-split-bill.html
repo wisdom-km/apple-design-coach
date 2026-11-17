@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Android 手机草稿 · 餐后 AA</title>
+<style>
+  :root {
+    color-scheme: light;
+    --ink: #1a1c1b;
+    --secondary: #5c6560;
+    --canvas: #d5ddd8;
+    --screen: #f4f7f5;
+    --accent: #0f6e56;
+    --tonal: #d7efe4;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    min-height: 100vh;
+    background: var(--canvas);
+    color: var(--ink);
+    font-family: Roboto, "Noto Sans", "Segoe UI", sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 28px 16px 40px;
+  }
+  .meta, .footnote {
+    width: min(390px, 100%);
+    font-size: 13px;
+    line-height: 1.45;
+    color: #24302c;
+  }
+  .meta { margin: 0 0 14px; }
+  .footnote { margin: 14px 0 0; font-size: 12px; }
+  .phone {
+    width: 390px;
+    max-width: 100%;
+    background: #1b2421;
+    border-radius: 28px;
+    padding: 8px;
+    box-shadow: 0 18px 50px rgba(0,0,0,.16);
+  }
+  .screen {
+    background: var(--screen);
+    border-radius: 22px;
+    min-height: 780px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+  .status {
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 16px;
+    font-size: 12px;
+    color: var(--secondary);
+  }
+  .top {
+    min-height: 64px;
+    display: flex;
+    align-items: center;
+    padding: 0 4px 0 16px;
+  }
+  .top h1 { margin: 0; font-size: 22px; font-weight: 500; flex: 1; }
+  .icon {
+    width: 48px;
+    height: 48px;
+    border: 0;
+    background: transparent;
+    color: var(--ink);
+    font: inherit;
+    font-size: 20px;
+  }
+  .field { padding: 12px 16px 0; }
+  .field p, .block p { margin: 0; color: var(--secondary); font-size: 12px; letter-spacing: .02em; }
+  .tonal {
+    margin-top: 8px;
+    background: var(--tonal);
+    border-radius: 16px;
+    min-height: 88px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    padding: 16px;
+    font-size: 36px;
+    font-variant-numeric: tabular-nums;
+  }
+  .tonal span { font-size: 14px; margin-right: 8px; color: var(--secondary); align-self: center; }
+  .block { padding: 22px 16px 0; }
+  .people, .tips { margin-top: 10px; display: flex; align-items: center; justify-content: space-between; }
+  .people button, .tips button {
+    min-width: 48px;
+    min-height: 48px;
+    border-radius: 12px;
+    border: 1px solid #c5d0cb;
+    background: #fff;
+    font: inherit;
+    font-size: 18px;
+  }
+  .people b { font-size: 22px; font-weight: 500; font-variant-numeric: tabular-nums; }
+  .tips { gap: 8px; }
+  .tips button { flex: 1; font-size: 14px; }
+  .tips .on { background: var(--accent); color: white; border-color: var(--accent); }
+  .dock { margin-top: auto; padding: 16px 16px 24px; }
+  .primary {
+    width: 100%;
+    min-height: 48px;
+    border: 0;
+    border-radius: 20px;
+    background: var(--accent);
+    color: white;
+    font: inherit;
+    font-size: 16px;
+    font-weight: 560;
+  }
+</style>
+</head>
+<body>
+  <p class="meta"><strong>设计草稿 · Android 手机 · 示例数据。</strong>不是安卓真机。同一件 AA 的事，不用 iOS 分组列表，也不加底栏：Material 导航栏用于 3–5 个目的地，单任务工具不该有。绿色和 16 px 圆角是示例决定。可点目标按 48 dp 这一档留高。</p>
+  <div class="phone">
+    <div class="screen">
+      <div class="status"><span>9:41</span><span>草稿</span></div>
+      <header class="top">
+        <h1>AA</h1>
+        <button class="icon" type="button" aria-label="更多">⋮</button>
+      </header>
+      <section class="field">
+        <p>总额</p>
+        <div class="tonal"><span>CNY</span>328.00</div>
+      </section>
+      <section class="block">
+        <p>人数</p>
+        <div class="people">
+          <button type="button" aria-label="减少人数">−</button>
+          <b>4</b>
+          <button type="button" aria-label="增加人数">+</button>
+        </div>
+      </section>
+      <section class="block">
+        <p>小费</p>
+        <div class="tips" role="group" aria-label="小费">
+          <button type="button">无</button>
+          <button class="on" type="button">10%</button>
+          <button type="button">定额</button>
+        </div>
+      </section>
+      <section class="block">
+        <p>每人应付</p>
+        <div class="tonal" style="min-height:112px;font-size:48px;align-items:center">¥90.20</div>
+        <p style="margin-top:8px">含小费 ¥36 · 共 4 人</p>
+      </section>
+      <div class="dock">
+        <button class="primary" type="button">复制结果</button>
+      </div>
+    </div>
+  </div>
+  <p class="footnote">空、错误、权限和离线与 iOS 稿同一产品决定：本地计算，无权限请求，空额时按钮不可用。设置在溢出菜单里，只有货币和取整。系统返回关闭设置页。这不是 HIG 合规声明。</p>
+</body>
+</html>

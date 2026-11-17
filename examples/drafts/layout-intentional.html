@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+<meta charset="utf-8">
+<title>正例 · 刻意的槽和满宽背景</title>
+<style>
+  * { box-sizing: border-box; }
+  body { margin: 0; font-family: sans-serif; background: #e7eeea; color: #1a1c1b; }
+  .app { width: 280px; margin: 12px; background: #f4f7f5; }
+  .bar, .kicker, .title { margin-left: 40px; margin-right: 16px; }
+  .bar { padding: 12px 0; font-weight: 600; }
+  .rule { height: 1px; background: #d5ddd8; }
+  .row { display: grid; grid-template-columns: 24px minmax(0, 1fr); gap: 8px; margin: 0 16px; padding: 8px 0; }
+  .slot { width: 24px; text-align: center; }
+  .amt { margin: 4px 16px 8px 40px; text-align: right; font-variant-numeric: tabular-nums; font-weight: 650; }
+  .caption { font-size: 14px; line-height: 1.45; margin: 12px; }
+</style>
+</head>
+<body>
+  <p class="caption">正例 · 示例数据 · 不是真机，也不是 Grok CLI。图标槽和满宽分隔线不是错位。密表没有改成海报。</p>
+  <div class="app">
+    <div class="bar">本月</div>
+    <div class="rule"></div>
+    <p class="kicker">结余 · 示例数据</p>
+    <div class="row">
+      <div class="slot" aria-hidden="true">·</div>
+      <p class="title">2026年11月家庭水电燃气合缴账单（含滞纳金说明）</p>
+    </div>
+    <p class="amt">−36.00</p>
+  </div>
+  <p class="caption">图标槽比正文更靠左，是刻意缩进。分隔线满宽，背景可以铺过文字边。窄宽时金额整段留在下一行，长中文没有被截成只剩省略号。不要把这些判成必须回到同一左线。</p>
+</body>
+</html>
