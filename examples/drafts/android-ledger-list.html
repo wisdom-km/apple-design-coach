@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Android 账单列表 · 四种状态</title>
+<style>
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: #d5ddd8;
+    color: #1a1c1b;
+    font-family: Roboto, "Noto Sans", "Segoe UI", sans-serif;
+    font-size: 16px;
+    padding: 20px 16px 32px;
+  }
+  h1 { font-size: 18px; margin: 0 0 8px; }
+  .banner, .coverage { max-width: 1280px; margin: 0 auto 12px; font-size: 14px; line-height: 1.45; }
+  .row { max-width: 1280px; margin: 0 auto; display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+  figure { margin: 0; }
+  figcaption { font-size: 14px; font-weight: 650; margin-bottom: 8px; }
+  .phone { background: #1b2421; border-radius: 22px; padding: 8px; }
+  .screen { background: #f4f7f5; border-radius: 16px; min-height: 460px; display: flex; flex-direction: column; overflow: hidden; }
+  .bar { min-height: 56px; display: flex; align-items: center; padding: 0 8px 0 14px; }
+  .bar h2 { margin: 0; font-size: 20px; font-weight: 500; flex: 1; }
+  .icon { width: 48px; height: 48px; border: 0; background: transparent; font-size: 20px; }
+  .body { padding: 0 14px 12px; }
+  .bill { margin: 0; font-size: 16px; line-height: 1.4; overflow-wrap: anywhere; }
+  .amount { margin: 8px 0 0; font-size: 32px; font-weight: 560; letter-spacing: -0.03em; }
+  .meta { margin: 4px 0 0; color: #5c6560; font-size: 14px; }
+  .quiet { margin: 24px 0 0; color: #3d4742; font-size: 16px; line-height: 1.4; }
+  .dock { margin-top: auto; padding: 12px 14px 16px; }
+  button.primary { width: 100%; min-height: 48px; border: 0; border-radius: 20px; background: #0f6e56; color: #fff; font: inherit; font-size: 16px; }
+  @media (max-width: 980px) { .row { grid-template-columns: 1fr; } .screen { min-height: 0; } }
+</style>
+</head>
+<body>
+  <p class="banner"><strong>账单列表 · Android · 示例数据 · 不是安卓真机。</strong>色和字沿用项目记录里的系统密表：背景 #f4f7f5，主操作 #0f6e56，正文约 16px。这些是项目决定，不是新的色板。</p>
+  <h1>同一列表的四种状态</h1>
+  <p class="coverage">覆盖：已画空白、加载、失败与重试，以及一条长标题。不适用：权限页。本列表不读相机、相册或通讯录；收据照片 optional-never-required，保存不依赖它。不适用：单独的离线页，示例是本机列表。尚未核对：删除先确认还是可撤销，原因写在设计记录的 Unknown。字号放大只另看失败这一态，不把四种状态各做一遍。</p>
+  <div class="row">
+    <figure>
+      <figcaption>有一条记录</figcaption>
+      <div class="phone"><div class="screen">
+        <header class="bar"><h2>账单</h2><button class="icon" type="button" aria-label="设置">⋮</button></header>
+        <div class="body">
+          <p class="bill">2026年11月家庭水电燃气合缴账单（含滞纳金说明）</p>
+          <p class="amount">328.00</p>
+          <p class="meta">家用 · CNY · 示例数据</p>
+        </div>
+        <div class="dock"><button class="primary" type="button">再记一笔</button></div>
+      </div></div>
+    </figure>
+    <figure>
+      <figcaption>空白</figcaption>
+      <div class="phone"><div class="screen">
+        <header class="bar"><h2>账单</h2><button class="icon" type="button" aria-label="设置">⋮</button></header>
+        <div class="body"><p class="quiet">空白。还没有账单。记下一笔之后，它会出现在这里。</p></div>
+        <div class="dock"><button class="primary" type="button">记第一笔</button></div>
+      </div></div>
+    </figure>
+    <figure>
+      <figcaption>加载</figcaption>
+      <div class="phone"><div class="screen">
+        <header class="bar"><h2>账单</h2><button class="icon" type="button" aria-label="设置">⋮</button></header>
+        <div class="body"><p class="quiet">加载。正在读取本机账单。示例里没有进度百分比。</p></div>
+        <div class="dock"><button class="primary" type="button" disabled>请稍候</button></div>
+      </div></div>
+    </figure>
+    <figure>
+      <figcaption>失败</figcaption>
+      <div class="phone"><div class="screen">
+        <header class="bar"><h2>账单</h2><button class="icon" type="button" aria-label="设置">⋮</button></header>
+        <div class="body"><p class="quiet">失败。这次没有读到账单。可以重试。示例不编错误码。</p></div>
+        <div class="dock"><button class="primary" type="button">重试</button></div>
+      </div></div>
+    </figure>
+  </div>
+</body>
+</html>

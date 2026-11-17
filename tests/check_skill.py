@@ -33,6 +33,9 @@ required_snippets = {
         "direction-choice.md",
         "design-memory.md",
         "draft-critique.md",
+        "已画 / 不适用",
+        "只讨论方向时不写这一段",
+        "不在这里另写一套",
     ],
     "docs/approval-2026-11-17-cross-platform.md": [
         "2026-11-17 13:08 Asia/Shanghai",
@@ -41,6 +44,11 @@ required_snippets = {
         "然后对它采用平台规范是没问题的，然后就是说苹果的那个设计的哲学是要保留的。",
         "按照你的建议做就行",
         "我建议先做前三项",
+        "2026-11-17 14:13 Asia/Shanghai",
+        "OK，那就按照你的建议，加入这两个精简版本吧：不增加启动器脚本、服务、安装步骤和框架依赖，但该有的都要有。No job，apple design coach 里面，然后并且进行测试测试，呃，我同意之后我觉得合格了之后你再合入到那个主 分支",
+        "这句回复所针对的建议",
+        "解释后的批准范围",
+        "本句没有给出合入许可",
     ],
     "references/platform-router.md": [
         "只做安卓",
@@ -56,6 +64,7 @@ required_snippets = {
     "references/direction-choice.md": [
         "这是文字说明，不是已渲染的预览",
         "coach-because-user-delegated",
+        "只讨论方向时，不写实现交接",
     ],
     "references/design-memory.md": [
         "visual_record: DESIGN.md",
@@ -65,6 +74,8 @@ required_snippets = {
     "references/draft-critique.md": [
         "未对照成图，以下是对结构的检查",
         "原有的功能、文案和链接都留着",
+        "不能只写在句子里",
+        "在 HTML 里放大字号不是 iOS 动态字体",
     ],
     "examples/scenario-first3.md": [
         "不是 Grok CLI",
@@ -76,6 +87,18 @@ required_snippets = {
         "receipt-photo: optional-never-required",
         "系统密表",
         "confirmed_by: user",
+    ],
+    "examples/scenario-states-handoff.md": [
+        "NOT VERIFIED",
+        "file://",
+        "不是 Grok CLI",
+        "receipt-photo: optional-never-required",
+    ],
+    "examples/project-memory/handoff.md": [
+        "receipt-photo: optional-never-required",
+        "DESIGN.md",
+        "指定 Kotlin、Flutter、React",
+        "只讨论方向时不写它",
     ],
     "examples/scenario-router.md": [
         "只做安卓",
@@ -111,7 +134,7 @@ for rel, snippets in required_snippets.items():
             errors.append(f"{rel} missing {snippet!r}")
 
 link_re = re.compile(r"\[[^\]]+\]\(([^)]+)\)")
-for path in list((ROOT).glob("*.md")) + list((ROOT / "references").glob("*.md")) + list((ROOT / "examples").glob("*.md")):
+for path in list(ROOT.glob("*.md")) + list((ROOT / "references").glob("*.md")) + list((ROOT / "examples").rglob("*.md")):
     text = path.read_text(encoding="utf-8")
     for match in link_re.finditer(text):
         target = match.group(1).strip()
@@ -152,6 +175,9 @@ if (
     or "确认重试" in readme
     or "按照你的建议做就行" in readme
     or "我建议先做前三项" in readme
+    or "2026-11-17 14:13" in readme
+    or "加入这两个精简版本" in readme
+    or "No job" in readme
 ):
     errors.append("approval record leaked into README")
 
@@ -167,6 +193,28 @@ if "设置" not in after:
 for name in ("账本纸", "系统密表", "一处重点"):
     if name not in directions:
         errors.append(f"direction thumbnails missing {name}")
+if "权限页不适用" not in after:
+    errors.append("simple ledger still lacks an explicit not-applicable permission note")
+if "必须实现 空 / 加载 / 错误 / 权限拒绝" in (ROOT / "SKILL.md").read_text(encoding="utf-8"):
+    errors.append("handoff template still forces every state including permission denial")
+
+listing = (ROOT / "examples" / "drafts" / "android-ledger-list.html").read_text(encoding="utf-8")
+scaled = (ROOT / "examples" / "drafts" / "android-ledger-list-scaled.html").read_text(encoding="utf-8")
+denied = (ROOT / "examples" / "drafts" / "android-ledger-photo-denied.html").read_text(encoding="utf-8")
+handoff = (ROOT / "examples" / "project-memory" / "handoff.md").read_text(encoding="utf-8")
+for phrase in ("空白", "加载", "失败", "重试", "尚未核对", "不适用", kept):
+    if phrase not in listing:
+        errors.append(f"list draft missing {phrase}")
+if "权限页" not in listing:
+    errors.append("list draft does not explain why the permission screen is absent")
+for phrase in ("150%", "不是动态字体", "重试", kept):
+    if phrase not in scaled:
+        errors.append(f"scaled draft missing {phrase}")
+for phrase in ("保存这笔，不附照片", "再试一次", "不是安卓真机权限", "receipt-photo: optional-never-required"):
+    if phrase not in denied:
+        errors.append(f"permission draft missing {phrase}")
+if re.search(r"#[0-9A-Fa-f]{3,8}", handoff):
+    errors.append("handoff copied color values instead of pointing at DESIGN.md")
 
 if errors:
     print("\n".join(errors))
