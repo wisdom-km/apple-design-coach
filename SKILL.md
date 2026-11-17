@@ -11,7 +11,8 @@ description: >-
   lightweight directions before the full mockup. Then produce a viewable
   mockup, critique it, and revise it, or give an honest structural fallback.
   Show only the states the task needs. Write a coding handoff only when
-  the user asks for one.
+  the user asks for one. After a direction is chosen, the visual draft is
+  one finished frame, not a wireframe sheet.
 ---
 # Apple Design Coach（跨表面软件设计教练）
 
@@ -175,7 +176,7 @@ description: >-
 1. 合同和落位先写完。平台沿用 `platform-router.md`，不要为了外观重问一遍。
 2. 方向还没定：按 `references/direction-choice.md` 给 2–3 个不同的轻量方向，停在这里。用户选定或明确委托你选之后，才做完整草稿。
 3. 项目里已有设计记录：按 `references/design-memory.md` 沿用。新确认的方向写入项目那一份记录，不另建一套。
-4. 然后交付能打开的 HTML，或当前会话里确实存在的图像工具生成的图。没有图像工具就不要提到一个并不存在的生成器。文字方向不是已渲染预览。不能写文件时，把单文件 HTML 放进回复并标明未落盘。两种都做不到时，交付结构线框，并写明「本轮没有可视草稿」。
+4. 然后交付能打开的 HTML，或当前会话里确实存在的图像工具生成的图。方向已经确认时，先给一帧主界面，不要用 ASCII、着色线框或多只粗框并排的说明书充当这帧成稿。没有图像工具就不要提到一个并不存在的生成器。文字方向不是已渲染预览。不能写文件时，把单文件 HTML 放进回复并标明未落盘。两种都做不到时，交付结构线框，并写明「本轮没有可视草稿」。
 5. 稿能看了之后，按 `references/draft-critique.md` 做最多 5 条检查，并把方向内能改的问题改进稿里。和任务有关的状态要画在稿上，并写覆盖说明。
 
 浏览器打开 HTML、或给它拍的图，是在看设计草稿，不是真机测试，也不是应用已经做好。用户没要求实现产品时，不要开始建工程。`aesthetic-coach`、frontend-design、hallmark 只有宿主里真有才用，没有就用本仓库的短清单。
@@ -279,6 +280,7 @@ description: >-
 26. **只评不改** — 草稿的问题列出来了，方向内能改的却留在稿上；或改的时候丢掉原来的功能、文案、链接
 27. **状态凑数** — 没有权限的任务也画权限流程；列表该有的空白、加载、失败只写在句子里
 28. **方向讨论逼出规格** — 还在选方向时写出整份实现交接，或另写一套色值替代项目已有的设计记录
+29. **说明书冒充成稿** — 方向已经确认，交出来的仍是多只粗设备框、大段覆盖说明或着色线框，并把它叫做完成的界面
 
 ---
 
@@ -342,6 +344,7 @@ description: >-
 - [ ] 方向已定或已沿用记录之后才有完整视觉稿；没定时停在 2–3 个选项
 - [ ] 项目视觉记录被沿用或谨慎更新；context 只指向它，不抄第二套色
 - [ ] 能看的稿经过短评审；方向内的问题已经改进稿，原功能还在
+- [ ] 方向已确认的视觉稿先是一帧界面；前后差写的是看得见的变化，不是编辑次数
 - [ ] 状态按任务标成已画、不适用或尚未核对；该画的出现在稿上，不靠权限页凑数
 - [ ] 实现交接只在用户要交给写代码时出现，并指向已有视觉记录
 - [ ] 用户要草稿时，有可打开的工件，或明确写了为什么本轮只有结构线框

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>改进前 · Android 系统密表</title>
+<style>
+  * { box-sizing: border-box; }
+  body { margin: 0; background: #cfc8be; color: #1a1c1b; font-family: Roboto, "Noto Sans", "Segoe UI", sans-serif; padding: 18px 14px 28px; }
+  .banner { max-width: 1100px; margin: 0 auto 14px; font-size: 15px; line-height: 1.45; }
+  h1 { max-width: 1100px; margin: 0 auto 12px; font-size: 22px; }
+  .row { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+  figure { margin: 0; }
+  figcaption { font-weight: 700; margin-bottom: 6px; }
+  .phone { background: #111; border-radius: 26px; padding: 10px; }
+  .screen { background: #f4f7f5; border-radius: 16px; min-height: 460px; overflow: hidden; }
+  .bar { min-height: 48px; display: flex; align-items: center; gap: 12px; padding: 0 12px; font-size: 16px; }
+  .bar b { font-weight: 650; }
+  .bar span { font-weight: 650; }
+  .split { display: flex; gap: 8px; padding: 12px; align-items: flex-start; }
+  .split p { margin: 0; font-size: 16px; }
+  .amt { margin-left: auto; white-space: nowrap; font-weight: 650; }
+  .big { margin: 8px 12px 0; font-size: 32px; font-weight: 650; }
+  .void { padding: 72px 16px; text-align: center; color: #5c6560; }
+  button { display: block; margin: 16px 12px; min-height: 48px; width: calc(100% - 24px); border: 0; border-radius: 20px; background: #0f6e56; color: #fff; font: inherit; }
+  @media (max-width: 900px) { .row { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+  <p class="banner"><strong>改进前 · Android · 系统密表 · 示例数据 · 不是安卓真机。</strong>这一页故意把说明和粗框放在内容前面。它保留了结余大数字、右齐金额和绿色主按钮，用来对照完成度，不是另一套方向。</p>
+  <h1>先读这段说明，再看四只手机</h1>
+  <div class="row">
+    <figure>
+      <figcaption>有账</figcaption>
+      <div class="phone"><div class="screen">
+        <div class="bar"><b>本月</b><span>搜索</span><span>更多</span></div>
+        <p class="big">2,110.00</p>
+        <div class="split">
+          <p>2026年11月家庭水电燃气合缴账单（含滞纳金说明）</p>
+          <p class="amt">−36.00</p>
+        </div>
+        <button type="button">记一笔</button>
+      </div></div>
+    </figure>
+    <figure>
+      <figcaption>空白</figcaption>
+      <div class="phone"><div class="screen">
+        <div class="bar"><b>本月</b><span>搜索</span><span>更多</span></div>
+        <p class="void">还没有账。</p>
+      </div></div>
+    </figure>
+    <figure>
+      <figcaption>加载</figcaption>
+      <div class="phone"><div class="screen">
+        <div class="bar"><b>本月</b><span>搜索</span><span>更多</span></div>
+        <p class="void">正在读取。</p>
+        <button type="button">请稍候</button>
+      </div></div>
+    </figure>
+    <figure>
+      <figcaption>失败</figcaption>
+      <div class="phone"><div class="screen">
+        <div class="bar"><b>本月</b><span>搜索</span><span>更多</span></div>
+        <p class="void">没读到。</p>
+        <button type="button">重试</button>
+      </div></div>
+    </figure>
+  </div>
+</body>
+</html>

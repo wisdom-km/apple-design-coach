@@ -65,6 +65,20 @@ Apple HIG 页面标明 © 2026 Apple Inc. All rights reserved。只链接和转�
 | Hallmark | https://github.com/Nutlope/hallmark/blob/main/skills/hallmark/SKILL.md | 用户已经点名方向就直接做；否则先给出少数几个不同方向，看过再做完整页面 | 仓库 MIT，Copyright (c) 2026 Hallmark contributors | 2026-11-17 读到 Direction 一节。不运行它的 `theme.mjs` |
 | Impeccable | https://github.com/pbakaus/impeccable | 用项目自己的 `DESIGN.md` 记住视觉；评审之后，精修留下原有功能与文案，重做才换外观 | Apache-2.0 | 2026-11-17 读 README 的命令表和 `skill/SKILL.src.md` 里关于精修与重做的一句。未逐条打开它宣称的规则文件，也不使用它的启动器 |
 
+## 成稿完成度（2026-11-17 再读）
+
+随附研究已打开 Apple HIG 的 typography、layout、color、icons、materials、motion 的 Markdown，以及 Notes、Wallet、Keynote 的公开说明页。本仓库不复制这些页面。可迁移的是：用文本角色而不是临时字号，对齐和分组，图标与相邻文字同重，内容先于外壳。不迁移的是：San Francisco、New York、SF Symbols 的字体文件或符号，Liquid Glass，以及把 Large Title 的 pt 写成 Android 或网页的规定。HIG 视频本轮未打开。
+
+下面三个仓库是本轮为补足开源样本而打开的。星标和许可证来自 2026-11-17 的 GitHub API。不安装、不克隆来跑。`v0id-byte/peg-design-system` 只有约 10 个星，不作为充分样本，本轮也不把它的海报字号写进规则。
+
+| 来源 | URL | 仓库事实 | 借 | 不借 |
+|------|-----|----------|----|------|
+| shadcn/ui 主题说明 | https://ui.shadcn.com/docs/theming | https://github.com/shadcn-ui/ui ，MIT，未归档，约 128390 star，`pushed_at` 2026-11-17T09:23:03Z | 颜色是角色：表面配前景色，主操作配自己的前景色，次要文字用更弱的角色，危险与主操作分开 | 不复制它的 oklch 色板、Tailwind 类名或 `components.json`。不把这套网页组件当成 Android 皮肤 |
+| Radix Themes 排版 | https://www.radix-ui.com/themes/docs/theme/typography | https://github.com/radix-ui/themes ，MIT，Copyright © 2023-present WorkOS，未归档，约 8857 star。最后 push 是 2026-04-11T18:39:15Z，不是当天仍在提交 | 字号、行高成套；默认用系统字体栈；强调用字重 | 不把它 9 级表里的像素和负字距当成规范。大号上的负 letter-spacing 是拉丁比例，不套到中文。不安装这个组件库 |
+| Slidev 内置版式 | https://sli.dev/builtin/layouts | https://github.com/slidevjs/slidev ，MIT，未归档，约 49530 star，`pushed_at` 2026-11-05T06:29:21Z | 一页先放要被看见的那一件；封面、事实页、引语是单独的版式 | 这些是幻灯片。`cover`、`fact`、`statement` 的超大构图不能当成应用首页。不安装 Slidev |
+
+另：Emil Kowalski 的公开文章把金额列写成 `tabular-nums`，并要求改界面时能指出前后差。站点没有仓库许可，不整篇抄入。本轮采用的是这个做法，不是他的动画课程。
+
 ## 本轮未当成已读
 
 - Material 导航轨概述页的正文（见上表）。

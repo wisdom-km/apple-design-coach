@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Android 个人记账 · 系统密表</title>
+<style>
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: #e7eeea;
+    color: #1a1c1b;
+    font-family: Roboto, "Noto Sans", "Segoe UI", sans-serif;
+    font-size: 16px;
+  }
+  .app {
+    width: min(400px, 100%);
+    margin: 0 auto;
+    background: #f4f7f5;
+    display: flex;
+    flex-direction: column;
+  }
+  .bar {
+    min-height: 64px;
+    display: flex;
+    align-items: center;
+    padding: 0 4px 0 16px;
+  }
+  .bar h1 { margin: 0; font-size: 22px; font-weight: 500; flex: 1; letter-spacing: 0; }
+  .icon {
+    width: 48px; height: 48px; border: 0; background: transparent; color: #1a1c1b;
+    display: grid; place-items: center;
+  }
+  .kicker { margin: 4px 16px 0; color: #5c6560; font-size: 13px; }
+  .balance {
+    margin: 2px 16px 0;
+    font-size: 32px;
+    font-weight: 560;
+    letter-spacing: 0;
+    font-variant-numeric: tabular-nums;
+  }
+  .sum { margin: 2px 16px 12px; color: #5c6560; font-size: 13px; font-variant-numeric: tabular-nums; }
+  .row {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 5.5rem;
+    gap: 12px;
+    align-items: start;
+    margin: 0 16px;
+    padding: 12px 0;
+    border-top: 1px solid #d5ddd8;
+    min-height: 72px;
+  }
+  .date, .meta { margin: 0; color: #5c6560; font-size: 13px; }
+  .title {
+    margin: 2px 0;
+    font-size: 16px;
+    line-height: 1.35;
+    letter-spacing: 0;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  .amt {
+    margin: 18px 0 0;
+    text-align: right;
+    font-size: 16px;
+    font-weight: 650;
+    font-variant-numeric: tabular-nums;
+  }
+  .out { color: #1a1c1b; }
+  .in { color: #1a1c1b; }
+  .dock { padding: 8px 16px 20px; }
+  .primary {
+    width: 100%; min-height: 48px; border: 0; border-radius: 20px;
+    background: #0f6e56; color: #fff; font: inherit; font-size: 16px;
+  }
+  .after { width: min(960px, 100%); margin: 0 auto; padding: 20px 16px 32px; }
+  .after h2 { font-size: 15px; font-weight: 650; margin: 0 0 8px; }
+  .note { margin: 0 0 14px; color: #3d4742; font-size: 14px; line-height: 1.45; }
+  .states { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+  .card { background: #f4f7f5; border-top: 1px solid #d5ddd8; overflow: hidden; }
+  .card h3 { margin: 0; padding: 10px 12px 0; font-size: 13px; color: #5c6560; font-weight: 650; }
+  .mini { min-height: 64px; display: flex; align-items: center; padding: 0 8px 0 12px; }
+  .mini strong { flex: 1; font-size: 18px; font-weight: 500; }
+  .menu { margin: 0 12px 8px; border: 1px solid #d5ddd8; border-radius: 8px; }
+  .menu p { margin: 0; padding: 12px; border-top: 1px solid #d5ddd8; font-size: 15px; }
+  .menu p:first-child { border-top: 0; }
+  .bone { height: 12px; margin: 10px 12px; border-radius: 4px; background: #e1e7e3; }
+  .bone.short { width: 42%; }
+  .quiet { margin: 8px 12px 12px; font-size: 15px; line-height: 1.4; }
+  .detail { margin-top: 16px; font-size: 14px; line-height: 1.45; }
+  @media (max-width: 800px) { .states { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+  <main class="app">
+    <header class="bar">
+      <h1>本月</h1>
+      <button class="icon" type="button" aria-label="搜索">
+        <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6" fill="none" stroke="currentColor" stroke-width="2"/><path d="M16 16l4 4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      </button>
+      <button class="icon" type="button" aria-label="更多">
+        <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="6" r="1.6" fill="currentColor"/><circle cx="12" cy="12" r="1.6" fill="currentColor"/><circle cx="12" cy="18" r="1.6" fill="currentColor"/></svg>
+      </button>
+    </header>
+    <p class="kicker">结余 · CNY · 示例数据</p>
+    <p class="balance">2,110.00</p>
+    <p class="sum">支出 40.00 · 收入 2,150.00</p>
+    <article class="row">
+      <div>
+        <p class="date">11月17日</p>
+        <p class="title">2026年11月家庭水电燃气合缴账单（含滞纳金说明）</p>
+        <p class="meta">家用 · 支出</p>
+      </div>
+      <p class="amt out">−36.00</p>
+    </article>
+    <article class="row">
+      <div>
+        <p class="date">11月16日</p>
+        <p class="title">地铁</p>
+        <p class="meta">交通 · 支出</p>
+      </div>
+      <p class="amt out">−4.00</p>
+    </article>
+    <article class="row">
+      <div>
+        <p class="date">11月15日</p>
+        <p class="title">稿费</p>
+        <p class="meta">收入</p>
+      </div>
+      <p class="amt in">+2,150.00</p>
+    </article>
+    <div class="dock"><button class="primary" type="button">记一笔</button></div>
+  </main>
+  <section class="after">
+    <h2>这一帧后面才是说明</h2>
+    <p class="note">改进后 · Android 手机 · 方向「系统密表」· 示例数据 · 不是安卓真机，也不是已经实现的应用。色和字沿用项目的 DESIGN.md。结余是唯一的大字。行内金额等宽、右齐，不另做海报。粗黑设备框没有出现在第一眼。</p>
+    <p class="detail">详情里的全文：2026年11月家庭水电燃气合缴账单（含滞纳金说明）。列表行最多两行，这一句在这里仍能读完。数字是示例，不是真实账单。</p>
+    <h2>同一密表的其他状态</h2>
+    <div class="states">
+      <article class="card">
+        <h3>空白</h3>
+        <div class="mini"><strong>本月</strong>
+          <button class="icon" type="button" aria-label="搜索"><svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6" fill="none" stroke="currentColor" stroke-width="2"/><path d="M16 16l4 4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button>
+          <button class="icon" type="button" aria-label="更多"><svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="6" r="1.6" fill="currentColor"/><circle cx="12" cy="12" r="1.6" fill="currentColor"/><circle cx="12" cy="18" r="1.6" fill="currentColor"/></svg></button>
+        </div>
+        <div class="menu"><p>分类</p><p>货币 · 人民币</p></div>
+        <p class="quiet">还没有这个月的账。记一笔之后，它会出现在上面的列表里。</p>
+        <div class="dock"><button class="primary" type="button">记一笔</button></div>
+      </article>
+      <article class="card">
+        <h3>加载</h3>
+        <div class="mini"><strong>本月</strong></div>
+        <div class="bone"></div>
+        <div class="bone short"></div>
+        <div class="bone"></div>
+        <div class="bone short"></div>
+        <p class="quiet">正在读取本机账单。没有百分比，也没有一颗能点的主色按钮。</p>
+      </article>
+      <article class="card">
+        <h3>失败，可以重试</h3>
+        <div class="mini"><strong>本月</strong>
+          <button class="icon" type="button" aria-label="更多"><svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="6" r="1.6" fill="currentColor"/><circle cx="12" cy="12" r="1.6" fill="currentColor"/><circle cx="12" cy="18" r="1.6" fill="currentColor"/></svg></button>
+        </div>
+        <div class="menu"><p>分类</p><p>货币 · 人民币</p></div>
+        <p class="quiet">这次没有读到账单。账还在手机里。</p>
+        <div class="dock"><button class="primary" type="button">重试</button></div>
+      </article>
+    </div>
+  </section>
+</body>
+</html>

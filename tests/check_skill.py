@@ -36,6 +36,7 @@ required_snippets = {
         "已画 / 不适用",
         "只讨论方向时不写这一段",
         "不在这里另写一套",
+        "说明书冒充成稿",
     ],
     "docs/approval-2026-11-17-cross-platform.md": [
         "2026-11-17 13:08 Asia/Shanghai",
@@ -76,6 +77,7 @@ required_snippets = {
         "原有的功能、文案和链接都留着",
         "不能只写在句子里",
         "在 HTML 里放大字号不是 iOS 动态字体",
+        "看得见的前后差",
     ],
     "examples/scenario-first3.md": [
         "不是 Grok CLI",
@@ -87,6 +89,18 @@ required_snippets = {
         "receipt-photo: optional-never-required",
         "系统密表",
         "confirmed_by: user",
+    ],
+    "references/aesthetics.md": [
+        "tabular-nums",
+        "不能叫做这一帧",
+    ],
+    "references/visual-drafts.md": [
+        "不能充当这帧成稿",
+    ],
+    "examples/scenario-craft.md": [
+        "NOT VERIFIED",
+        "不是 Grok CLI",
+        "系统密表",
     ],
     "examples/scenario-states-handoff.md": [
         "NOT VERIFIED",
@@ -215,6 +229,27 @@ for phrase in ("保存这笔，不附照片", "再试一次", "不是安卓真�
         errors.append(f"permission draft missing {phrase}")
 if re.search(r"#[0-9A-Fa-f]{3,8}", handoff):
     errors.append("handoff copied color values instead of pointing at DESIGN.md")
+
+craft = (ROOT / "examples" / "drafts" / "android-ledger-craft.html").read_text(encoding="utf-8")
+craft_before = (ROOT / "examples" / "drafts" / "android-ledger-craft-before.html").read_text(encoding="utf-8")
+if "tabular-nums" not in craft or "记一笔" not in craft or kept not in craft:
+    errors.append("finished dense draft dropped tabular numbers, the action, or the sample title")
+if "请稍候" in craft:
+    errors.append("finished draft still uses a wait button during loading")
+if "分类" not in craft or "货币" not in craft:
+    errors.append("finished draft does not show what More contains")
+for banned in ("C:\\Users", "19612", "click-review", "Wisdom", "design-platform-research"):
+    for rel in (
+        "examples/drafts/android-ledger-craft.html",
+        "examples/drafts/android-ledger-craft-before.html",
+        "examples/drafts/android-ledger-craft-narrow.html",
+        "examples/scenario-craft.md",
+        "references/aesthetics.md",
+    ):
+        if banned in (ROOT / rel).read_text(encoding="utf-8"):
+            errors.append(f"{rel} contains private marker {banned}")
+if "改进前" not in craft_before or "请稍候" not in craft_before:
+    errors.append("before sheet no longer shows the rough wait button")
 
 if errors:
     print("\n".join(errors))
