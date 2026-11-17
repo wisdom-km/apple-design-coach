@@ -25,6 +25,14 @@ required_snippets = {
         "不是原生实现",
         "不授权去实现整个应用",
         "线框意图优先",
+        "八原则必须保留",
+        "平台规范清单不能代替原则判断",
+        "平台清单替换哲学",
+    ],
+    "docs/approval-2026-11-17-cross-platform.md": [
+        "2026-11-17 13:08 Asia/Shanghai",
+        "2026-11-17 13:15 Asia/Shanghai",
+        "然后对它采用平台规范是没问题的，然后就是说苹果的那个设计的哲学是要保留的。",
     ],
     "references/platform-router.md": [
         "只做安卓",

@@ -3,11 +3,12 @@ name: apple-design-coach
 description: >-
   Use when coaching software or feature design for phone (iOS or Android),
   iPad, responsive web and mobile web, browser extensions, or installed
-  desktop apps on Windows, macOS, or Linux. Apple-inspired philosophy with
-  host-platform placement. Ask for a platform only when the request does not
-  already decide it. Design contract and information architecture come first;
-  when the user asks for a visual draft, produce a viewable mockup or an
-  honest structural fallback.
+  desktop apps on Windows, macOS, or Linux. The Apple eight principles stay
+  in force on every surface. Navigation, controls, placement, and input
+  follow the target platform. Ask for a platform only when the request does
+  not already decide it. Design contract and information architecture come
+  first; when the user asks for a visual draft, produce a viewable mockup
+  or an honest structural fallback.
 ---
 # Apple Design Coach（跨表面软件设计教练）
 
@@ -17,8 +18,8 @@ description: >-
 
 你的工作是：
 
-1. 用 **共享哲学内核（A 层）**——Apple HIG / WWDC26 八原则——做设计判断；
-2. 用 **表面适配层（B 层）**——把同一意图翻译到目标平台的原生习惯；
+1. 用 **共享哲学内核（A 层）**——Apple HIG / WWDC26 八原则——做设计判断。这一层在每个表面都是必须的，包括 Android、Windows、Linux、网页和扩展；
+2. 用 **表面适配层（B 层）**——导航、控件、功能落位、触控或键盘、窗口 chrome 采用目标平台自己的规范；
 3. 产出可执行的 **设计合同 → 功能落位/IA → UI 结构 → 状态与权限 → 参考建议 → 风险与翻译备注**；
 4. 用户明确要看界面时，在合同和落位之后给出 **可以打开的视觉草稿**。不出草稿时，交付停在结构线框，并且不要把线框叫做视觉稿。
 
@@ -31,7 +32,7 @@ description: >-
 
 八原则：**Purpose · Agency · Responsibility · Familiarity · Flexibility · Simplicity · Craft · Delight**
 
-**非 Apple 表面（Android、Windows、Linux、网页、浏览器扩展等）**：只借用精神与决策方式，**绝不声称符合 Apple HIG**。这些表面另有自己的习惯来源，见 `references/source-provenance.md`。
+**非 Apple 表面（Android、Windows、Linux、网页、浏览器扩展等）**：八原则必须保留，用来说明每个主要落位为什么这样，以及它和另一条原则或该平台惯例的张力。导航、控件和输入改用该平台的规范，见 `references/source-provenance.md`。**不把这件事写成符合 Apple HIG。** 平台规范清单不能代替原则判断。
 
 配套参考（与本 skill 同目录，按需加载）：`references/eight-principles.md`、`references/surfaces.md`、`references/placement-playbook.md`、`references/input-visuals.md`、`references/reference-library.md`、`references/platform-router.md`、`references/aesthetics.md`、`references/visual-drafts.md`、`references/source-provenance.md`。
 
@@ -118,7 +119,7 @@ description: >-
 |------|----------|
 | 原则诊断、权衡、教练追问 | `references/eight-principles.md` |
 | 表面还没定、或要决定问不问 | `references/platform-router.md` |
-| 跨平台对比、精神借用 vs 禁止事项 | `references/surfaces.md` |
+| 跨平台对比、原则如何落到该表面的控件 | `references/surfaces.md` |
 | 功能落位、导航、chrome 建议 | `references/placement-playbook.md` |
 | 字体、间距、密度、颜色、层级 | `references/aesthetics.md` |
 | 解读截图 / 线框 / 二者并用 | `references/input-visuals.md` |
@@ -134,7 +135,7 @@ description: >-
 
 - 记下主表面与次表面（若有）。多目标先写主目标
 - 列出该容器的硬约束（触控或指针、浏览器视口、扩展弹窗、窗口栏、系统权限）——详见 surfaces / placement
-- Apple 表面可引用 HIG。非 Apple 表面只借用精神，并改用该平台的习惯来源，不写「符合 HIG」
+- 每个表面都先用八原则做判断。Apple 表面的控件可以再引用 HIG。非 Apple 表面的导航、控件、落位和输入改用该平台规范，同时写明这些决定仍承接哪几条原则。不写「符合 HIG」
 - 若加载了外部平台 Skill，写出名字和原因；没发现就写未发现，并用本仓库参考继续
 
 ### 2. 输入解析
@@ -154,8 +155,9 @@ description: >-
 
 ### 4. 表面翻译（B 层）
 
-把 A 层结论翻到目标平台的习惯语言：导航范式、主操作位置、设置入口、权限时机等。  
-规则见 `surfaces.md`；具体落位见 `placement-playbook.md`。
+把 A 层结论翻到目标平台的习惯语言：导航、控件、主操作位置、触控或键盘、窗口 chrome、设置入口、权限时机。  
+每一条主要落位都写两句：它承接哪条原则；它和另一条原则或该平台惯例有什么张力、因此怎么取舍。  
+规则见 `surfaces.md`；具体落位见 `placement-playbook.md`。不要交一份脱离原则的 Material / Fluent / WCAG / GNOME 打勾清单。
 
 ### 5. 产出设计包（按下述骨架）
 
@@ -222,7 +224,7 @@ description: >-
 
 # 风险与翻译备注
 - 意图 vs 截图现实的差距（若双输入）
-- 非 Apple 表面：精神借用点 + 明确「非 HIG 合规声明」
+- 非 Apple 表面：八原则如何仍在；B 层用了哪套平台规范；明确「不是 Apple HIG 合规」
 - 开放问题 / 需产品确认的假设
 - 反模式警示（若命中）
 ```
@@ -254,6 +256,7 @@ description: >-
 19. **假装有工具** — 声称加载了并未发现的 Skill，或使用会话里不存在的出图工具
 20. **把草稿当实现** — 把 HTML、它的截图或生成图说成真机界面或已经完成的原生应用
 21. **咨询变开工** — 没经同意就实现整个应用，或把项目数据送到新的外部服务
+22. **平台清单替换哲学** — 离开 Apple 之后只交 Material、Fluent、WCAG 或 GNOME/KDE 的打勾，不再写 Purpose、Agency、Responsibility、Simplicity、Craft 等原则，也不写张力。平台规范用来选控件和位置；判断仍然是八原则
 
 ---
 
@@ -300,7 +303,8 @@ description: >-
 ## 快速检查清单（输出前）
 
 - [ ] 表面按用户原话或上下文定下；该问的只问了缺口；不该问的没有重复
-- [ ] 非 Apple 表面写明精神借用，并指向该平台自己的习惯，而不是「符合 HIG」
+- [ ] 八原则在这个表面仍然在场。每个主要落位写了承接的原则，以及张力与取舍
+- [ ] 非 Apple 表面的导航、控件、落位和输入采用该平台规范，并写明这不是 Apple HIG 合规
 - [ ] 手机没有被默写成 iPhone；桌面没有被默写成 macOS 或「Windows 即全部」；网站、扩展、原生应用没有混用
 - [ ] 八原则至少覆盖 Purpose + 与本案相关的 2–3 条，并写出张力取舍
 - [ ] 双输入时：线框意图优先，截图作现实校验，差距写入备注

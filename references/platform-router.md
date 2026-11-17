@@ -76,7 +76,7 @@
 
 跨平台框架（Flutter、React Native 等）只说明代码可以共用。导航、窗口 chrome、主按钮和指针/触控仍按上面的目标容器分开。Flutter 文档把「适应空间」和「按平台选择可用的布局与输入」分开；这里采用这个区分：一套皮肤打所有系统不算适配。
 
-Apple 的原则可以用来做判断。非 Apple 表面只借用精神，不写「符合 Apple HIG」。Android 要另看 Material，Windows 要另看 Fluent / WinUI，Linux 要另看所选定的桌面环境。
+路由只决定容器。决定了之后，八原则仍然必须用来判断；Android 的导航和控件看 Material，Windows 看 Fluent / WinUI，Linux 看已经选定的桌面环境，网页看页面结构与 WCAG。这些规范选择 B 层，不替换 A 层，也不写成「符合 Apple HIG」。
 
 ---
 

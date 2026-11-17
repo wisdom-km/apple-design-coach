@@ -1,13 +1,13 @@
 # B 层：表面适配（Surfaces）
 
-哲学内核（A 层）跨表面共享；**表现与 chrome 必须按表面翻译**。
+哲学内核（A 层）在每个表面都必须用来判断；**导航、控件、落位和 chrome 按表面翻译（B 层）**。非 Apple 表面不写成 Apple HIG 合规。
 
-官方 Apple 原则（仅适用于理解精神；非 Apple 表面不得声称 HIG 合规）：
+官方原则：
 
 - https://developer.apple.com/design/human-interface-guidelines/design-principles
 - https://developer.apple.com/videos/play/wwdc2026/250/
 
-可扩展：新增表面时，补一行对比表 + 一节「习惯来源」，仍走「精神借用、本地惯例」规则。
+可扩展：新增表面时，补一行对比表 + 一节「习惯来源」。新表面仍然先写八原则，再写该表面的控件。
 
 容器先按 `platform-router.md` 定。下表每一列是一种容器，不能互相代替。
 
@@ -47,20 +47,33 @@
 同一 Purpose / IA 意图，换成该表面的导航壳与主操作位置。  
 例：「查看列表 → 打开详情 → 编辑」在 iOS 用推入导航；在 macOS 用列表+详情分栏；在扩展里可能拆成「弹窗列表 → 选项页详情」。
 
-### 规则 2：精神借用，不借皮肤
+### 规则 2：哲学保留，皮肤按目标平台
 
-非 Apple 表面可借用：
+八原则在每个表面都必须留下来，用来解释决定。下面这些不是「可借用的装饰」，而是 A 层要回答的事：
 
-- 清晰目的、用户控制、晚请求权限、宽恕、层级清楚、细节诚实
+- 这件事有没有明确目的，有没有在稀释它（Purpose、Simplicity）
+- 用户能不能按自己的方式做完，错了能不能回来（Agency）
+- 权限和伤害是不是被推迟到该问的时候，拒绝之后还有没有路（Responsibility）
+- 细节有没有让人觉得靠得住（Craft）；愉悦有没有离开目的（Delight）
 
-不可借用（作为默认外观）：
+B 层改用目标平台自己的导航、控件、落位、触控或键盘和窗口 chrome。不要默认搬这些外观：
 
-- iOS Tab Bar / Large Title / 过多圆角卡片堆叠冒充「高级」
-- 把 SF Symbols 审美当 Windows/扩展的唯一图标语言而不考虑系统图标
+- iOS Tab Bar / Large Title / 过多圆角卡片堆叠
+- 把 SF Symbols 当成 Windows、Android 或扩展的唯一图标
 
-输出中必须写一句，并把括号换成这次的表面：
+每条主要落位按这个格式写，而不是交一份平台规范打勾：
 
-> 本方案在 {Android|网页|Windows|Linux|扩展} 上借用 Apple 设计原则的精神（Purpose、Agency 等），不声称符合 Apple HIG；控件与导航遵循 {Material|WCAG 与网页惯例|Fluent/WinUI|GNOME 或 KDE|浏览器扩展} 惯例。
+```text
+落位：Android 单任务计算器不用底栏。
+B 层：Material 导航栏用于 3–5 个同级目的地，单任务不用。
+A 层：Purpose 要人马上拿到结果；Simplicity 拒绝为了像一个完整应用去造目的地。
+张力：Familiarity 会让人期待一条底栏。这里目的更重，所以不加。
+合规：这是 Material 的落位，不是 Apple HIG 合规。
+```
+
+输出里再写一句总声明，括号换成这次的表面：
+
+> 本方案在 {Android|网页|Windows|Linux|扩展} 上保留 Apple 八原则作为判断（见上）。导航、控件、落位和输入遵循 {Material|网页惯例与 WCAG|Fluent/WinUI|GNOME 或 KDE|浏览器扩展}。这不是 Apple HIG 合规声明。
 
 ### 规则 3：平台优势优先（Flexibility）
 

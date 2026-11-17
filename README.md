@@ -24,7 +24,7 @@ The skill asks only for a choice that is still missing. A stated platform is use
 
 **Shared philosophy kernel (A):** [Apple HIG Design principles](https://developer.apple.com/design/human-interface-guidelines/design-principles) — Purpose, Agency, Responsibility, Familiarity, Flexibility, Simplicity, Craft, Delight ([WWDC26 Session 250](https://developer.apple.com/videos/play/wwdc2026/250/)).
 
-**Surface adaptation (B):** same intent, host-platform conventions. Outside Apple platforms: **borrow the spirit only — never claim Apple HIG compliance.** Android follows Material, the web follows WCAG and ordinary page structure, Windows follows Fluent / WinUI, and Linux follows the chosen desktop guidelines.
+**Surface adaptation (B):** navigation, controls, placement, keyboard or touch, and window chrome follow the target platform. Android uses Material, the web uses ordinary page structure and WCAG, Windows uses Fluent / WinUI, and Linux uses the chosen desktop guidelines. The eight principles still decide why a control is there. That is not a claim of Apple HIG compliance, and a platform checklist does not replace the principles.
 
 ## Install
 
